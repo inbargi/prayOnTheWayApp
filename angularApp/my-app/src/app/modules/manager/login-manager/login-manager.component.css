@@ -1,0 +1,32 @@
+
+#login{
+    text-align: center;
+}
+.managerName{
+    text-align: center;
+}
+#title{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+    padding: 5px;
+}
+
+
+.options *{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:small;
+}
+input{
+    padding: 2px;
+    width:150px;
+}
+#l-manager{
+    padding-left: 85px;
+}
+#l-password{
+    padding-left: 120px;
+}
+.error{
+    color:red;
+    display:list-item;
+}

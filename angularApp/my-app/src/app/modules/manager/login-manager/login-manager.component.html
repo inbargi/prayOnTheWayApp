@@ -1,0 +1,29 @@
+<div id="login">
+    <div id="logo">
+        
+        <img src="assets/images/logo.jpg" height="250px" width="300px" />
+    </div>
+    <div id="title">
+        <h2>כניסת מנהל למערכת </h2>
+    </div>
+    <div class="managerName">
+        <form (ngSubmit)="loginManager()" accept-charset="UTF-8" [formGroup]="loginManagerFrm">
+            <div class="options">
+                <label id="l-manager">שם משתמש</label>
+                <br />
+                <input type="text" name="manager-name" placeholder="שם משתמש" formControlName="managerName">
+                <span class="error" *ngIf="">המערכת זיהתה אותיות לא חוקיות</span>
+
+            </div>
+            <div class="options">
+                <label id="l-password">סיסמא</label>
+                <br />
+                <input type="password" name="password" placeholder="סיסמא" formControlName="password">
+                <span class="error" *ngIf="">המערכת זיהתה אותיות לא חוקיות</span>
+
+            </div>
+            <br />
+            <input type="submit" value="התחבר">
+        </form>
+    </div>
+</div>

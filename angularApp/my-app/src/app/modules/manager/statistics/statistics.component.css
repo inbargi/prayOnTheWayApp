@@ -1,0 +1,61 @@
+p{
+    font-size: x-large;
+}
+
+#statistic{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+
+}
+#statistics *{
+    border-radius: 3px;
+    font-size:medium;
+    padding: 4px;
+    margin:4px;
+    width:100%
+
+}
+#s1{
+    background-color: rgb(124, 39, 124);
+}
+
+#s2{
+    background-color: rgb(161, 87, 161);
+}
+#s3{
+    background-color: rgb(212, 149, 212);
+}
+#s1 :hover{
+    color: rgb(124, 39, 124);
+    background-color: white;
+}
+#s2 :hover{
+    color: rgb(161, 87, 161);
+    background-color: white;
+}
+#s3 :hover{
+    color: rgb(212, 149, 212);
+    background-color: white;
+}
+.diagrama{
+    margin:4px;
+    width:20%;
+    display: inline-block;
+    
+}
+
+#line-chart{
+    background-color: rgb(100, 75, 189);
+}
+#bar-chart{
+    background-color: rgb(76, 54, 158);
+}
+#pie-chart{
+    background-color: rgb(60, 34, 153);
+
+}
+#doughnut-chart{
+    background-color: rgb(40, 13, 138);
+
+}
