@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DTO
 {
     public class MinyanDTO
-    {
+    {//ytry changing
         public long IDMinyan { get; set; }
         public long IDPrayer { get; set; }
         public DateTime DateMinyan { get; set; }
