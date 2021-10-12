@@ -30,7 +30,9 @@ export class LoginManagerComponent implements OnInit {
       res => {
         if (res) {
           console.log(res);
-          this.router.navigate(["manager/statistics"])
+          this.router.navigate(["manager/menu-manager"])
+
+      
         }
         else console.error("not correct")
       }

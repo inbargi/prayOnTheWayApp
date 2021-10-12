@@ -9,10 +9,12 @@ import { BarChartComponent } from './statistics/bar-chart/bar-chart.component';
 import { LineChartComponent } from './statistics/line-chart/line-chart.component';
 import { PieChartComponent } from './statistics/pie-chart/pie-chart.component';
 import { DoughnutChartComponent } from './statistics/doughnut-chart/doughnut-chart.component';
+import { MenuManagerComponent } from './menu-manager/menu-manager.component';
 
 
 const routes: Routes = [
   {path:'',component:LoginManagerComponent},
+  {path:'menu-manager',component:MenuManagerComponent},
   {path:'statistics',component:StatisticsComponent},
   {path:'statistics/bar-chart',component:BarChartComponent},
   {path:'statistics/line-chart',component:LineChartComponent},
