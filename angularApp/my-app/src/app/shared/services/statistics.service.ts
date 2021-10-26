@@ -14,6 +14,6 @@ export class StatisticsService {
   {
     return this.http.get<any[]>(environment.api_url+'statistic/DataToStatisticPrayer');
   }
-
+ 
 
 }

@@ -22,6 +22,8 @@ namespace API.Controllers
         }
         public List<MinyanDTO> Getminyans()
         {
+            new BLL.LocationAlgorithmics().FindOptionalLocations(new BLL.Models.LocationPoint { Lat= "31.8701568", Lng= "34.7406336" });
+            new BLL.LocationAlgorithmics().RouteDistanceInSecondOnModeDrive(new BLL.Models.LocationPoint { Lat = "31.8701568", Lng = "34.7406336" }, new BLL.Models.LocationPoint { Lat = "269.8701568", Lng = "270.7406336" });
             return minyanBll.GetMinyans();
         }
     }
