@@ -1,4 +1,6 @@
 ﻿using BLL.Models;
+using BLL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +19,8 @@ namespace BLL.Algoritmics
         public void AddPrayerToMinyan(int idMinyan)
         {
            
+
+               
         }
         public void RemovePrayerToMinyan(int idMinyan)
         {

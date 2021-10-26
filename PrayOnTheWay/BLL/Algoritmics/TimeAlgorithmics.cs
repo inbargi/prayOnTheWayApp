@@ -31,7 +31,7 @@ namespace BLL
         }
         public int RecognizePrayer()
         {
-            return 1;
+            
         }
         public bool CheckTimeAlgorithmic(int idPrayer)
         {
