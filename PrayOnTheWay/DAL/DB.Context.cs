@@ -25,11 +25,11 @@ namespace DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AskMinyan> AskMinyans { get; set; }
         public virtual DbSet<AsksToMinyan> AsksToMinyans { get; set; }
-        public virtual DbSet<Prayer> Prayers { get; set; }
         public virtual DbSet<SafePointOnTheWay> SafePointOnTheWays { get; set; }
-        public virtual DbSet<TimeAtTheDay> TimeAtTheDays { get; set; }
         public virtual DbSet<Minyan> Minyans { get; set; }
+        public virtual DbSet<AskMinyan> AskMinyans { get; set; }
+        public virtual DbSet<Prayer> Prayers { get; set; }
+        public virtual DbSet<TimeAtTheDay> TimeAtTheDays { get; set; }
     }
 }

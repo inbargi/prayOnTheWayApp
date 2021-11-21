@@ -1,4 +1,4 @@
-﻿using BLL.Models;
+﻿using DTO;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -13,11 +13,37 @@ namespace BLL
     public class LocationAlgorithmics
     {
         public const double R = 2700; //1800 * (18/60)
-        public LocationPoint DriverLocation()
+        AskMinyanBLL askMinyanBLL = new AskMinyanBLL();
+        SafePointOnTheWayBLL safePointOnTheWayBLL = new SafePointOnTheWayBLL();
+        public LocationPoint DriverLocation(int idAskMinyan)
         {
-           
-            return new LocationPoint();
+            LocationPoint l = new LocationPoint();
+            List<AskMinyanDTO> asks = askMinyanBLL.GetAskMinyans();
+            foreach (var ask in asks)
+            {
+                if(ask.IdAskMinyan == idAskMinyan)
+                {
+                    l= ask.LocationPoint;
+                }
+            }
+            return l;
         }
+        public LocationPoint GetLocationByIDMinyan(long idLocationMinyan)
+        {
+            LocationPoint point = new LocationPoint();
+            List<SafePointOnTheWayDTO> safesPointOnTheWay = safePointOnTheWayBLL.GetSafePointOnTheWays();
+            foreach (var safe in safesPointOnTheWay)
+            {
+                if (safe.IdlocationMinyan == idLocationMinyan)
+                {
+                    point.Lat = safe.Lat;
+                    point.Lng = safe.Lng;
+                    break;
+                }
+            }
+            return point;
+        }
+
         public int RouteDistanceInSecondOnModeDrive(LocationPoint current, LocationPoint destination)
         {
             string ApiKey = ConfigurationManager.AppSettings["APIKEY"];

@@ -9,8 +9,8 @@ namespace DTO
     public class SafePointOnTheWayDTO
     {
         public long IdlocationMinyan { get; set; }
-        public double Lat { get; set; }
-        public double Lng { get; set; }
+        public string Lat { get; set; }
+        public string Lng { get; set; }
         public List<MinyanDTO> Minyans { get; set; }
     }
 }

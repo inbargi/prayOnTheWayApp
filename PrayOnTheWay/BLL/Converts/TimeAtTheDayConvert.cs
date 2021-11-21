@@ -16,7 +16,8 @@ namespace BLL.Converts
             {
                 IdTime = timeAtTheDay.IdTime,
                 Descreption = timeAtTheDay.Descreption,
-               // Prayers = PrayerConvert.ConvertDALToDTOList(timeAtTheDay.Prayers)
+                SuitableFunc = timeAtTheDay.SuitableFunc
+                // Prayers = PrayerConvert.ConvertDALToDTOList(timeAtTheDay.Prayers)
 
             };
         }
@@ -27,7 +28,9 @@ namespace BLL.Converts
             {
                 IdTime = timeAtTheDayDTO.IdTime,
                 Descreption = timeAtTheDayDTO.Descreption,
-              //  Prayers = PrayerConvert.ConvertDTOToDALList(timeAtTheDayDTO.Prayers)
+                SuitableFunc = timeAtTheDayDTO.SuitableFunc
+
+                //  Prayers = PrayerConvert.ConvertDTOToDALList(timeAtTheDayDTO.Prayers)
 
             };
         }

@@ -25,11 +25,12 @@ namespace DAL
         public string NamePrayer { get; set; }
         public long IdTime { get; set; }
         public long LastTimeToday { get; set; }
+        public long PrayTimeLength { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AskMinyan> AskMinyans { get; set; }
-        public virtual TimeAtTheDay TimeAtTheDay { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Minyan> Minyans { get; set; }
+        public virtual TimeAtTheDay TimeAtTheDay { get; set; }
     }
 }

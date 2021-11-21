@@ -102,13 +102,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algoritmics\AlgorithmicPrayOnTheWay.cs" />
     <Compile Include="Algoritmics\MinyanAlgorithmics.cs" />
     <Compile Include="AskMinyanBLL.cs" />
     <Compile Include="AsksToMinyanBLL.cs" />
     <Compile Include="Converts\AskMinyanConvert.cs" />
     <Compile Include="Algoritmics\LocationAlgorithmics.cs" />
     <Compile Include="ManagerBLL.cs" />
-    <Compile Include="Models\LocationPoint.cs" />
     <Compile Include="Models\optionalLocation.cs" />
     <Compile Include="PrayerBll.cs" />
     <Compile Include="Converts\AsksToMinyanConvert.cs" />

@@ -42,8 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AskMinyanDTO.cs" />
+    <Compile Include="AskPrayerResult.cs" />
     <Compile Include="AsksToMinyanDTO.cs" />
+    <Compile Include="LocationPoint.cs" />
     <Compile Include="MinyanDTO.cs" />
+    <Compile Include="OptionalMinyan.cs" />
     <Compile Include="PrayerDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SafePointOnTheWayDTO.cs" />

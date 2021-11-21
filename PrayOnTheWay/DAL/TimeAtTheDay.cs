@@ -22,6 +22,7 @@ namespace DAL
     
         public long IdTime { get; set; }
         public string Descreption { get; set; }
+        public string SuitableFunc { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Prayer> Prayers { get; set; }

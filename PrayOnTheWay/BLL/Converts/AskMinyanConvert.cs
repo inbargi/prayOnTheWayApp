@@ -18,8 +18,11 @@ namespace BLL.Converts
                 AskTime=askMinyan.AskTime,
                 IdPrayer=askMinyan.IdPrayer,
                 Prayer=PrayerConvert.ConvertDALToDTO(askMinyan.Prayer),
-                Lat=askMinyan.Lat,
-                Lng=askMinyan.Lng,
+                LocationPoint=new LocationPoint {
+                    Lat = askMinyan.Lat,
+                    Lng = askMinyan.Lng,
+                }
+                
                 //AsksToMinyans=AsksToMinyanConvert.ConvertDALToDTOList(askMinyan.AsksToMinyans)
             };
         }
@@ -30,10 +33,8 @@ namespace BLL.Converts
                 IdAskMinyan = askMinyanDTO.IdAskMinyan,
                 AskTime = askMinyanDTO.AskTime,
                 IdPrayer = askMinyanDTO.IdPrayer,
-                Prayer = PrayerConvert.ConvertDTOToDAL(askMinyanDTO.Prayer),
-                Lat = askMinyanDTO.Lat,
-                Lng = askMinyanDTO.Lng,
-               // AsksToMinyans = AsksToMinyanConvert.ConvertDTOToDALList(askMinyanDTO.AsksToMinyans)
+                Lat = askMinyanDTO.LocationPoint.Lat,
+                Lng = askMinyanDTO.LocationPoint.Lng,
             };
         }
 

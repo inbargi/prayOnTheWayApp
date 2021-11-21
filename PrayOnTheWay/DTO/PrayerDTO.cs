@@ -11,6 +11,7 @@ namespace DTO
         public string NamePrayer { get; set; }
         public long IdTime { get; set; }
         public long LastTimeToday { get; set; }
+        public long PrayTimeLength { get; set; }
         public List<AskMinyanDTO> AskMinyans { get; set; }
         public TimeAtTheDayDTO TimeAtTheDay { get; set; }
     }

@@ -18,8 +18,9 @@ namespace BLL.Converts
                 IdTime = prayer.IdTime,
                 NamePrayer = prayer.NamePrayer,
                 LastTimeToday = prayer.LastTimeToday,
-             //   TimeAtTheDay = TimeAtTheDayConvert.ConvertDALToDTO(prayer.TimeAtTheDay),
-               // AskMinyans = AskMinyanConvert.ConvertDALToDTOList(prayer.AskMinyans)
+                PrayTimeLength = prayer.PrayTimeLength
+                //   TimeAtTheDay = TimeAtTheDayConvert.ConvertDALToDTO(prayer.TimeAtTheDay),
+                // AskMinyans = AskMinyanConvert.ConvertDALToDTOList(prayer.AskMinyans)
             };
         }
         public static Prayer ConvertDTOToDAL(PrayerDTO prayerDTO)

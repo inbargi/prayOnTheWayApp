@@ -18,8 +18,9 @@ namespace BLL
 
         public bool AddAskMinyan(AskMinyanDTO AskMinyan)
         {
-            
+            //todo Check what prayer
             return askMinyanDAL.AddAskMinyan(Converts.AskMinyanConvert.ConvertDTOToDAL(AskMinyan));
+            //calculate options
         }
         public List<AskMinyanDTO> GetAskMinyans()
         {

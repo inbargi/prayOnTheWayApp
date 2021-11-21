@@ -4,7 +4,8 @@ export class Prayer
     public  IdPrayer?:number,
     public  NamePrayer?:string,
     public  IdTime?:number,
-    public  LastTimeToday?:number
+    public  LastTimeToday?:number,
+    public  PrayTimeLength?: number
     )
     {
         

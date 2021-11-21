@@ -52,6 +52,8 @@ namespace BLL
           DateTime result= (DateTime)method.Invoke(zc, new object[] { });
           return result.TimeOfDay;
 
+
         }
+        
     }
 }

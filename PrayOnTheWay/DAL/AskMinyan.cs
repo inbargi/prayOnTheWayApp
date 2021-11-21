@@ -21,13 +21,13 @@ namespace DAL
         }
     
         public long IdAskMinyan { get; set; }
-        public double Lat { get; set; }
-        public double Lng { get; set; }
+        public string Lat { get; set; }
+        public string Lng { get; set; }
         public long IdPrayer { get; set; }
-        public long AskTime { get; set; }
+        public System.TimeSpan AskTime { get; set; }
     
-        public virtual Prayer Prayer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AsksToMinyan> AsksToMinyans { get; set; }
+        public virtual Prayer Prayer { get; set; }
     }
 }
