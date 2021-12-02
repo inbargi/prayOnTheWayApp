@@ -8,5 +8,5 @@ import { Prayer } from './shared/models/prayer.model';
 })
 export class AppComponent {
   
-  title = 'my-app';
+  title = 'pray-on-the-way';
 }

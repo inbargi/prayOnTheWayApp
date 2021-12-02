@@ -14,8 +14,8 @@ namespace BLL.Converts
         {
             SafePointOnTheWayDTO safePointOnTheWayDTO = new SafePointOnTheWayDTO();
             safePointOnTheWayDTO.IdlocationMinyan = safePointOnTheWay.IdlocationMinyan;
-            safePointOnTheWayDTO.Lat = safePointOnTheWay.Lat;
-            safePointOnTheWayDTO.Lng = safePointOnTheWay.Lng;
+            safePointOnTheWayDTO.Lat = safePointOnTheWay.Lat.ToString();
+            safePointOnTheWayDTO.Lng = safePointOnTheWay.Lng.ToString();
          //   safePointOnTheWayDTO.Minyans = (MinyanConvert.ConvertDALToDTOList(safePointOnTheWay.Minyans));
             return safePointOnTheWayDTO;
         }
@@ -23,8 +23,8 @@ namespace BLL.Converts
         {
             SafePointOnTheWay safePointOnTheWay = new SafePointOnTheWay();
             safePointOnTheWay.IdlocationMinyan = safePointOnTheWayDTO.IdlocationMinyan;
-            safePointOnTheWay.Lat = safePointOnTheWayDTO.Lat;
-            safePointOnTheWay.Lng = safePointOnTheWayDTO.Lng;
+            safePointOnTheWay.Lat = (safePointOnTheWayDTO.Lat);
+            safePointOnTheWay.Lng = (safePointOnTheWayDTO.Lng);
            // safePointOnTheWay.Minyans = (MinyanConvert.ConvertDTOToDALList(safePointOnTheWayDTO.Minyans));
             return safePointOnTheWay;
         }

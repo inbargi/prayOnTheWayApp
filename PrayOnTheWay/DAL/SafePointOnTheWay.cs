@@ -21,8 +21,8 @@ namespace DAL
         }
     
         public long IdlocationMinyan { get; set; }
-        public double Lat { get; set; }
-        public double Lng { get; set; }
+        public string Lat { get; set; }
+        public string Lng { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Minyan> Minyans { get; set; }

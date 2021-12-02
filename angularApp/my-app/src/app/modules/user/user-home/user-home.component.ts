@@ -18,7 +18,11 @@ export class UserHomeComponent implements OnInit {
         .subscribe(res=>console.log(res));
 
       });
-  }
+      
+    }
+  
+
+  
 
   getLocation()
   {
@@ -26,6 +30,7 @@ export class UserHomeComponent implements OnInit {
     return new Promise((res, rej) => {
       navigator.geolocation.getCurrentPosition(res, rej);
   });
+
 
     
 
