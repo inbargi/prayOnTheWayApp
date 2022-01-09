@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { BarChartComponent } from './modules/manager/statistics/bar-chart/bar-chart.component';
 
 import { MenuManagerComponent } from './modules/manager/menu-manager/menu-manager.component';
+import { MinyanSelectionComponent } from './modules/user/minyan-selection/minyan-selection.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatSliderModule } from '@angular/material/slider';
 
 
 @NgModule({
   declarations: [
     AppComponent,
 
-    MenuManagerComponent
+    MenuManagerComponent,
 
 
   ],
@@ -25,6 +29,9 @@ import { MenuManagerComponent } from './modules/manager/menu-manager/menu-manage
     FormsModule,
     ReactiveFormsModule,
     NgxEchartsModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 ﻿using BLL;
+using BLL.Models;
 using DTO;
 using System;
 using System.Collections.Generic;
@@ -81,18 +82,13 @@ namespace BLL.Algoritmics
             return NumOfPeopleInMinyan(idMinyan) > 0;
         }
 
-        public int MinyansInPercent()
+        public int MinyansInPercent(long idLocationMinyan)
         {
+            List<MinyanDTO> minyans = minyanBll.GetMinyans();
+            
             return 1;
         }
-        public AsksToMinyanDTO ShowAndChooseMinyans(List<MinyanDTO> minyans)
-        {
-            return new AsksToMinyanDTO();
-        }
-        public void SavingChoose(int idMinyan)
-        {
-
-        }
+       
         public AsksToMinyanDTO CreateMinyan(LocationPoint driverLocation, long idAskMinyan)
         {
             List<OptionalLocation> optionals = locationAlgorithmics.FindOptionalLocations(driverLocation);
@@ -162,9 +158,10 @@ namespace BLL.Algoritmics
             int c = driverOptions.Count;
             switch (c)
             {
-                case 0:return CreateMinyan(driverLocation,idAskMinyan);
-                  
-                case 1:AddPrayerToMinyan(driverOptions[0].IDMinyan);
+                case 0: return CreateMinyan(driverLocation, idAskMinyan);
+
+                case 1:
+                    AddPrayerToMinyan(driverOptions[0].IDMinyan);
                     AsksToMinyanDTO asksToMinyan = new AsksToMinyanDTO
                     {
                         IdMinyan = driverOptions[0].IDMinyan,
@@ -172,11 +169,49 @@ namespace BLL.Algoritmics
                     };
                     asksToMinyanBLL.AddAsksToMinyan(asksToMinyan);
                     return asksToMinyan;
-                    
-                default:return ShowAndChooseMinyans(driverOptions);
-                
+
+                default:
+                    {
+                        List<SelectMinyan> selectMinyans = ShowAndChooseMinyans(driverLocation, driverOptions);
+                        long idSelected = 1;
+                        return SavingChoose(selectMinyans, idAskMinyan, idSelected);
+
+
+                    }
+
             }
-            
         }
+            public List<SelectMinyan> ShowAndChooseMinyans(LocationPoint driverLocation, List<MinyanDTO> minyans)
+            {
+                List<SelectMinyan> selectMinyans = new List<SelectMinyan>();
+                foreach (MinyanDTO m in minyans)
+                {
+                    LocationPoint locationDestination = locationAlgorithmics.GetLocationByIDMinyan(m.IDMinyan);
+                    selectMinyans.Add(new SelectMinyan
+                    {
+                        IdMinyan = m.IDMinyan,
+                        NumKM = locationAlgorithmics.RouteDistanceInKMOnModeDrive(driverLocation, locationDestination),
+                        NumOfPeople = m.NumOfPeopleInMinyan,
+                        TimeDriver = locationAlgorithmics.RouteDistanceInSecondOnModeDrive(driverLocation, locationDestination),
+                        PercentSuccess = 5
+                        //todo percentSuccess func
+                    });
+                }
+                return selectMinyans;
+            }
+            //-----מ.ז נבחר מהאנגולר--מספר מזהה של בקשה---רשימת מנינים אפשריים---
+            public AsksToMinyanDTO SavingChoose(List<SelectMinyan> selectMinyans, long idAskMinyan, long idSelected)
+            {
+                AddPrayerToMinyan(idSelected);
+                AsksToMinyanDTO asksToMinyan = new AsksToMinyanDTO
+                {
+                    IdMinyan = idSelected,
+                    IdAskMinyan = idAskMinyan
+                };
+                asksToMinyanBLL.AddAsksToMinyan(asksToMinyan);
+                return asksToMinyan;
+            }
+        }
+        
     }
-}
+

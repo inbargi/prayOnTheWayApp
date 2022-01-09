@@ -17,12 +17,14 @@ namespace API.Controllers
         AskMinyanBLL askMinyanBll = new AskMinyanBLL();
         TimeAlgorithmics timeAlgorithmics = new TimeAlgorithmics();
         AlgorithmicPrayOnTheWay algorithmicPrayOnTheWay = new AlgorithmicPrayOnTheWay();
+
         public bool AddAskMinyan(LocationPoint driverPoint)
         {
             long idPrayer = timeAlgorithmics.RecognizePrayer(driverPoint);
             if(idPrayer == -1)
             {
                 //todo send to angular message-not time for pray
+                
             }
              
                
@@ -31,8 +33,18 @@ namespace API.Controllers
                 IdPrayer=idPrayer,
                 AskTime=DateTime.Now.TimeOfDay
             };
-            algorithmicPrayOnTheWay.Algorithmic(driverPoint, askMinyan.IdAskMinyan);
-            return askMinyanBll.AddAskMinyan(askMinyan);
+            if(askMinyanBll.AddAskMinyan(askMinyan))
+            {
+                AskMinyanDTO askM = GetAskMinyans().Find(a => 
+                        a.LocationPoint.Equals(driverPoint) && 
+                        a.IdPrayer == idPrayer && 
+                        a.AskTime.Equals(askMinyan.AskTime));
+                algorithmicPrayOnTheWay.Algorithmic(driverPoint, askM.IdAskMinyan);
+            }
+            else
+                return false;
+            return true;
+
 
 
         }

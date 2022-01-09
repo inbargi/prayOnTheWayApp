@@ -27,7 +27,7 @@ namespace BLL.Algoritmics
                 }
             }
             LocationPoint destination = locationAlgorithmics.GetLocationByIDMinyan(idDestinantion);
-            if (destination.Lat == "" || destination.Lng == "")
+            if (destination.Lat == null || destination.Lng == null)
                 //todo messeage location not valid
                 if (timeAlgorithmics.CheckTimeAlgorithmic(driverLocation, destination))
 

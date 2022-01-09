@@ -16,25 +16,14 @@ export class UserHomeComponent implements OnInit {
         const driverLocation= new LocationPoint(location.coords.latitude,location.coords.longitude);
         this.askMinyanService.driverLocation(driverLocation)
         .subscribe(res=>console.log(res));
-
+        this.askMinyanService.location=location;
       });
-      
     }
-  
-
-  
-
   getLocation()
   {
-
     return new Promise((res, rej) => {
       navigator.geolocation.getCurrentPosition(res, rej);
-  });
-
-
-    
-
-    
+    });
   }
 
 }

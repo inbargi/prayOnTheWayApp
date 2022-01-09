@@ -19,10 +19,12 @@ namespace API.Controllers
         {
             return statisticBLL.DataToStatisticPrayer();
         }
+        [HttpGet]
         public StatisticDataDTO[]  DataToStatisticSuccessfullyMinyan()
         {
             return statisticBLL.DataToStatisticSuccessfullyMinyan();
         }
+        [HttpGet]
         public StatisticDataDTO[] DataToStatisticCreateTime()
         {
             return statisticBLL.DataToStatisticCreateTime();

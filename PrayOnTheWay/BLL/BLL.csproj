@@ -110,6 +110,7 @@
     <Compile Include="Algoritmics\LocationAlgorithmics.cs" />
     <Compile Include="ManagerBLL.cs" />
     <Compile Include="Models\optionalLocation.cs" />
+    <Compile Include="Models\SelectMinyan.cs" />
     <Compile Include="PrayerBll.cs" />
     <Compile Include="Converts\AsksToMinyanConvert.cs" />
     <Compile Include="Converts\MinyanConvert.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="MinyanBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SafePointOnTheWayBLL.cs" />
+    <Compile Include="SelectMinyanBLL.cs" />
     <Compile Include="StatisticBLL.cs" />
     <Compile Include="Algoritmics\TimeAlgorithmics.cs" />
     <Compile Include="TimeAtTheDayBLL.cs" />

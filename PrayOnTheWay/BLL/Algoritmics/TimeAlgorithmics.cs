@@ -11,6 +11,7 @@ using Zmanim.TzDatebase;
 using Zmanim.Utilities;
 using TzLookup;
 using TimeZoneLookup = TzLookup.TimeZoneLookup;
+using System.Reflection;
 
 namespace BLL
 {
@@ -96,10 +97,24 @@ namespace BLL
             {
                 TimeSpan beginingTime = GetTimeByTimeFunc(pray.IdTime, driverPoint);
                 TimeSpan lastTime = GetTimeByTimeFunc(pray.LastTimeToday, driverPoint);
-                if(currentTime >= beginingTime && currentTime <= lastTime)
+                TimeSpan chtoz = new TimeSpan(23, 59, 59);
+                //בערבית ישנה בעיה מבחינת חצות
+                if(pray.IdPrayer==3)
                 {
-                    return pray.IdPrayer;
+                    if (currentTime.CompareTo(chtoz) <= 0)
+                        if (currentTime.CompareTo(beginingTime) > 0)
+                            return pray.IdPrayer;
+                        else
+                        if (currentTime.CompareTo(lastTime) < 0)
+                            return pray.IdPrayer;
                 }
+                //עובד כשהזמן על אותו הציר
+                if (currentTime.CompareTo(beginingTime) > 0 && currentTime.CompareTo(lastTime) < 0)
+                    return pray.IdPrayer;
+                //if (currentTime >= beginingTime && currentTime <= lastTime)
+                //{
+                //    return pray.IdPrayer;
+                //}
             }
             return -1;
         }
@@ -128,7 +143,7 @@ namespace BLL
 
             ComplexZmanimCalendar zc = new ComplexZmanimCalendar(location);
 
-            var method = typeof(ComplexZmanimCalendar).GetMethod(GetSuitableFunc(idTime));
+            MethodInfo method = typeof(ComplexZmanimCalendar).GetMethod(GetSuitableFunc(idTime));
             DateTime result = (DateTime)method.Invoke(zc, new object[] { });
             return result.TimeOfDay;
         }

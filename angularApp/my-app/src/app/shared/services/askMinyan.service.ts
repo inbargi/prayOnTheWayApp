@@ -7,8 +7,8 @@ import { LocationPoint } from '../models/locationPoint.model';
   providedIn: 'root'
 })
 export class AskMinyanService {
-
-
+  location: LocationPoint={};
+ 
   constructor(private http:HttpClient)
   { 
      
@@ -17,6 +17,13 @@ export class AskMinyanService {
   driverLocation(location:LocationPoint)
   {
      return this.http.post(environment.api_url+'AskMinyan',location)
+  }
+
+/*   }  selectMinyan(selectMinyanList){
+ */
+  feedback(succesfullyMinyan:Boolean)
+  {
+    return this.http.put(environment.api_url+'Minyan',succesfullyMinyan)
   }
 
 }

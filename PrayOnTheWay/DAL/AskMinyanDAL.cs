@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 
 namespace DAL
@@ -18,11 +20,14 @@ namespace DAL
                 try
                 {
                     DB.SaveChanges();
+
                     return true;
                 }
-                catch (Exception)
+                catch (DbUpdateException e)
                 {
+                    Console.WriteLine(e.InnerException.InnerException.Message);
                     throw;
+
                 }
             }
             
@@ -31,7 +36,9 @@ namespace DAL
         {
             using (PrayOnTheWayEntities DB = new PrayOnTheWayEntities())
             {
-                return DB.AskMinyans.ToList();
+                return DB.AskMinyans.
+                    Include(d => d.Prayer)
+                    .ToList();
             }
         }
         public bool UpdateAskMinyan(AskMinyan askMinyan)

@@ -103,6 +103,7 @@
     <Compile Include="Controllers\MinyanController.cs" />
     <Compile Include="Controllers\PrayerController.cs" />
     <Compile Include="Controllers\SafePointOnTheWayController.cs" />
+    <Compile Include="Controllers\SelectMinyanController.cs" />
     <Compile Include="Controllers\StatisticController.cs" />
     <Compile Include="Controllers\TimeAtTheDayController.cs" />
     <Compile Include="Global.asax.cs">

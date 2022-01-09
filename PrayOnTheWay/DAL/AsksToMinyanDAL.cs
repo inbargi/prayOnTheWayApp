@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,8 +20,9 @@ namespace DAL
                     DB.SaveChanges();
                     return true;
                 }
-                catch (Exception)
+                catch (DbUpdateException e)
                 {
+                    Console.WriteLine(e.InnerException.InnerException.Message);
                     throw;
                 }
             }
