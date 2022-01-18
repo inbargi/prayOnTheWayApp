@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-   public class AsksToMinyanBLL
+    public class AsksToMinyanBLL
     {
         AsksToMinyanDAL asksToMinyanDAL = new AsksToMinyanDAL();
         public bool AddAsksToMinyan(AsksToMinyanDTO AsksToMinyan)
@@ -27,6 +27,18 @@ namespace BLL
         public bool RemoveAsksToMinyan(AsksToMinyanDTO asksToMinyan)
         {
             return asksToMinyanDAL.RemoveAsksToMinyan(Converts.AsksToMinyanConvert.ConvertDTOToDAL(asksToMinyan));
+        }
+
+        public long GetIdMinyanByIdAskMinyan(long idAskMinyan)
+        {
+            List<AsksToMinyanDTO> asksToMinyans = GetAsksToMinyans();
+            long idMinyan = -1;
+            foreach (AsksToMinyanDTO askto in asksToMinyans)
+            {
+                if (askto.IdAskMinyan == idAskMinyan)
+                    idMinyan = askto.IdMinyan;
+            }
+            return idMinyan;
         }
     }
 }

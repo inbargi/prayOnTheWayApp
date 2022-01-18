@@ -14,12 +14,13 @@ namespace API.Controllers
     public class SafePointOnTheWayController : ApiController
     {
         SafePointOnTheWayBLL safePointOnTheWayBll = new SafePointOnTheWayBLL();
-
+        [HttpPost]
         public bool AddSafePointOnTheWay(SafePointOnTheWayDTO safePointOnTheWay)
         {
             return safePointOnTheWayBll.AddSafePointOnTheWay(safePointOnTheWay);
 
         }
+        [HttpGet]
         public List<SafePointOnTheWayDTO> GetSafePointOnTheWays()
         {
             return safePointOnTheWayBll.GetSafePointOnTheWays();

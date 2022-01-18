@@ -13,8 +13,8 @@ import { SelectMinyan } from 'src/app/shared/models/selectMinyan.model';
 export class MinyanSelectionComponent implements OnInit {
   
   
-  constructor(private askMinyanService:AskMinyanService, private selectMinyanService: SelectMinyanService,@Inject('selects') public selects: SelectMinyan[] ) { }
-  
+  constructor(private askMinyanService:AskMinyanService, private selectMinyanService: SelectMinyanService) { }
+  selects:SelectMinyan[] = [];
   ngOnInit(): void {
   
     this.selectMinyanService.updateSelectMinyan(this.askMinyanService.location).subscribe(res => {

@@ -26,8 +26,8 @@ namespace DAL
         public long IdPrayer { get; set; }
         public System.TimeSpan AskTime { get; set; }
     
+        public virtual Prayer Prayer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AsksToMinyan> AsksToMinyans { get; set; }
-        public virtual Prayer Prayer { get; set; }
     }
 }

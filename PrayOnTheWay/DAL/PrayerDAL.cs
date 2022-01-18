@@ -31,7 +31,7 @@ namespace DAL
         {
             using (PrayOnTheWayEntities DB = new PrayOnTheWayEntities())
             {
-                return DB.Prayers.Include(p=>p.AskMinyans).Include(p=>p.TimeAtTheDay).ToList();
+                return DB.Prayers.Include(p => p.AskMinyans).Include(p => p.Minyans).Include(p => p.TimeAtTheDay).ToList();
             }
         }
         public bool UpdatePrayer(Prayer prayer)

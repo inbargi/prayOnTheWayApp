@@ -5,11 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="fd840041261b49728571fc9eb45e5007" Name="Diagram1" ZoomLevel="116">
-        <EntityTypeShape EntityType="PrayOnTheWayModel.AsksToMinyan" Width="1.5" PointX="8.125" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="PrayOnTheWayModel.Minyan" Width="2.375" PointX="5.25" PointY="1.125" />
-        <AssociationConnector Association="PrayOnTheWayModel.FK__AsksToMin__IdMin__31EC6D26" />
         <EntityTypeShape EntityType="PrayOnTheWayModel.AskMinyan" PointX="5.25" PointY="4.375" Width="1.5" />
-        <AssociationConnector Association="PrayOnTheWayModel.FK__AsksToMin__IdAsk__30F848ED" />
         <EntityTypeShape EntityType="PrayOnTheWayModel.Prayer" Width="1.5" PointX="3" PointY="4.375" />
         <EntityTypeShape EntityType="PrayOnTheWayModel.TimeAtTheDay" Width="1.5" PointX="0.75" PointY="4.375" />
         <AssociationConnector Association="PrayOnTheWayModel.FK__AskMinyan__IdPra__2B3F6F97" />
@@ -17,6 +14,9 @@
         <AssociationConnector Association="PrayOnTheWayModel.FK__Prayers__IdTime__08B54D69" />
         <EntityTypeShape EntityType="PrayOnTheWayModel.SafePointOnTheWay" Width="1.5" PointX="2.375" PointY="1.75" />
         <AssociationConnector Association="PrayOnTheWayModel.FK__Minyan__Idlocati__2D27B809" />
+        <EntityTypeShape EntityType="PrayOnTheWayModel.AsksToMinyan" Width="1.5" PointX="8.25" PointY="5.25" />
+        <AssociationConnector Association="PrayOnTheWayModel.FK__AsksToMin__IdAsk__30F848ED" />
+        <AssociationConnector Association="PrayOnTheWayModel.FK__AsksToMin__IdMin__31EC6D26" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

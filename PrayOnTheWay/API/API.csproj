@@ -106,6 +106,7 @@
     <Compile Include="Controllers\SelectMinyanController.cs" />
     <Compile Include="Controllers\StatisticController.cs" />
     <Compile Include="Controllers\TimeAtTheDayController.cs" />
+    <Compile Include="Controllers\TotalSoFarController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

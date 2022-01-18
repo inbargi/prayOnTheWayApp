@@ -4,7 +4,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data.Entity;
 
 namespace DAL
 {
@@ -32,7 +32,7 @@ namespace DAL
         { 
             using (PrayOnTheWayEntities DB = new PrayOnTheWayEntities())
             {
-                return DB.AsksToMinyans.ToList();
+                return DB.AsksToMinyans.Include(d => d.AskMinyan).Include(d=>d.Minyan).ToList();
             }
         }
         public bool UpdateAsksToMinyan(AsksToMinyan asksToMinyan)

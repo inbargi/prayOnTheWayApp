@@ -1,3 +1,14 @@
-<div>
-    <img src="assets/images/time_up.png" height="250px" width="300px" />
+<div *ngIf="this.error==1">
+    <img src="assets/images/pocketwatch.png"  width="100%" />
 </div>
+<div *ngIf="this.error==2">
+    <p>אין זמן</p>
+    <img src="assets/images/time_up.png"  width="100%" />
+</div>
+<div *ngIf="this.error==3">
+    <img src="assets/images/validLocation.png"  width="100%" />
+</div>
+<div *ngIf="this.error==4">
+    <img src="assets/images/safeLocation.png"  width="100%" />
+</div>
+

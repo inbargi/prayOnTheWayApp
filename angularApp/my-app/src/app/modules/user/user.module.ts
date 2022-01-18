@@ -38,6 +38,8 @@ const routes: Routes = [
     MatButtonModule,
     MatIconModule,
     MatBadgeModule,
+    MatCardModule,
+    MatProgressBarModule,
     RouterModule.forChild(routes)
   ],
   exports:[RouterModule,

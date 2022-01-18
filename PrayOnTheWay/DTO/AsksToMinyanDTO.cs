@@ -11,7 +11,7 @@ namespace DTO
         public long IdAsksToMinyan { get; set; }
         public long IdAskMinyan { get; set; }
         public long IdMinyan { get; set; }
-        public string IsComming { get; set; }
+        public bool IsComming { get; set; }
 
         public AskMinyanDTO AskMinyan { get; set; }
         public MinyanDTO Minyan { get; set; }

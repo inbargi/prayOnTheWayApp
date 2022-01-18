@@ -13,7 +13,6 @@ namespace BLL
         MinyanDAL minyanDAL = new MinyanDAL();
         public bool AddMinyan(MinyanDTO minyan)
         {
-
             return minyanDAL.AddMinyan(Converts.MinyanConvert.ConvertDTOToDAL(minyan));
         }
         public List<MinyanDTO> GetMinyans()

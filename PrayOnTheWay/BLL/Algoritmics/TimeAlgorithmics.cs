@@ -13,6 +13,7 @@ using TzLookup;
 using TimeZoneLookup = TzLookup.TimeZoneLookup;
 using System.Reflection;
 
+
 namespace BLL
 {
     public class TimeAlgorithmics
@@ -21,7 +22,7 @@ namespace BLL
         AskMinyanBLL askMinyanBLL = new AskMinyanBLL();
         PrayerBll prayerBll = new PrayerBll();
         LocationAlgorithmics locationAlgorithmics = new LocationAlgorithmics();
-        
+
 
         public double DriverSpeed()
         {
@@ -30,9 +31,9 @@ namespace BLL
         public TimeSpan GetEnterTime(long idAskMinyan)
         {
             List<AskMinyanDTO> asks = askMinyanBLL.GetAskMinyans();
-            foreach(AskMinyanDTO ask  in asks)
+            foreach (AskMinyanDTO ask in asks)
             {
-                if(ask.IdAskMinyan == idAskMinyan)
+                if (ask.IdAskMinyan == idAskMinyan)
                 {
                     return ask.AskTime;
                 }
@@ -78,7 +79,7 @@ namespace BLL
         }
         public int GetPrayLength(int idPrayer)
         {
-            
+
             List<PrayerDTO> prayers = prayerBll.GetPrayers();
             foreach (PrayerDTO pray in prayers)
             {
@@ -99,7 +100,7 @@ namespace BLL
                 TimeSpan lastTime = GetTimeByTimeFunc(pray.LastTimeToday, driverPoint);
                 TimeSpan chtoz = new TimeSpan(23, 59, 59);
                 //בערבית ישנה בעיה מבחינת חצות
-                if(pray.IdPrayer==3)
+                if (pray.IdPrayer == 3)
                 {
                     if (currentTime.CompareTo(chtoz) <= 0)
                         if (currentTime.CompareTo(beginingTime) > 0)
@@ -134,12 +135,12 @@ namespace BLL
         }
         public TimeSpan GetTimeByTimeFunc(long idTime, LocationPoint driverPoint)
         {
-            //todo checking to this func
+
             //LocationPoint driveLocationPoint = locationAlgorithmics.DriverLocation(idAskMinyan);
             string timeZoneString = TimeZoneLookup.Iana((float)Convert.ToDouble(driverPoint.Lat), (float)Convert.ToDouble(driverPoint.Lng));
 
             ITimeZone timeZone = new OlsonTimeZone(timeZoneString);
-            GeoLocation location = new GeoLocation((float)Convert.ToDouble(driverPoint.Lat), (float)Convert.ToDouble( driverPoint.Lng), timeZone);
+            GeoLocation location = new GeoLocation((float)Convert.ToDouble(driverPoint.Lat), (float)Convert.ToDouble(driverPoint.Lng), timeZone);
 
             ComplexZmanimCalendar zc = new ComplexZmanimCalendar(location);
 
@@ -151,12 +152,17 @@ namespace BLL
         {
             int currentTime = (int)DateTime.Now.TimeOfDay.TotalSeconds;
             int navigationTime = TimeDriveToMinyan(driverLocation, destination);
-            int prayTimeLength = GetPrayLength((int)RecognizePrayer(driverLocation))*60;
+            int prayTimeLength = GetPrayLength((int)RecognizePrayer(driverLocation)) * 60;
             int getEndTimePray = (int)GetEndTimePray(driverLocation).TotalSeconds;
             if (navigationTime == 0 || prayTimeLength == -1 || getEndTimePray.Equals(new TimeSpan()))
                 return false;
-            if(currentTime + navigationTime + prayTimeLength > getEndTimePray)
+            if (currentTime + navigationTime + prayTimeLength > getEndTimePray)
+            {
+                //todo error2
+                BLL.Algoritmics.ErrorServiceClass.error = 2;
                 return false;
+            }
+
             return true;
         }
 

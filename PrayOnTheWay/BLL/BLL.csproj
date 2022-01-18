@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algoritmics\AlgorithmicPrayOnTheWay.cs" />
+    <Compile Include="Algoritmics\ErrorServiceClass.cs" />
     <Compile Include="Algoritmics\MinyanAlgorithmics.cs" />
     <Compile Include="AskMinyanBLL.cs" />
     <Compile Include="AsksToMinyanBLL.cs" />

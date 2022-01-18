@@ -8,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class TimeIsUpComponent implements OnInit {
 
   constructor() { }
-
+  error:number = 1;
   ngOnInit(): void {
+    
   }
 
 }

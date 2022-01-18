@@ -22,7 +22,7 @@
           <Property Name="IdAsksToMinyan" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdAskMinyan" Type="bigint" Nullable="false" />
           <Property Name="IdMinyan" Type="bigint" Nullable="false" />
-          <Property Name="IsComming" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsComming" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Minyan">
           <Key>
@@ -170,29 +170,9 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PrayOnTheWayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="AsksToMinyan">
-          <Key>
-            <PropertyRef Name="IdAsksToMinyan" />
-          </Key>
-          <Property Name="IdAsksToMinyan" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdAskMinyan" Type="Int64" Nullable="false" />
-          <Property Name="IdMinyan" Type="Int64" Nullable="false" />
-          <Property Name="IsComming" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Minyan" Relationship="PrayOnTheWayModel.FK__AsksToMin__IdMin__31EC6D26" FromRole="AsksToMinyan" ToRole="Minyan" />
-          <NavigationProperty Name="AskMinyan" Relationship="PrayOnTheWayModel.FK__AsksToMin__IdAsk__30F848ED" FromRole="AsksToMinyan" ToRole="AskMinyan" />
-        </EntityType>
         <EntityContainer Name="PrayOnTheWayEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AsksToMinyans" EntityType="Self.AsksToMinyan" />
           <EntitySet Name="Minyans" EntityType="PrayOnTheWayModel.Minyan" />
-          <AssociationSet Name="FK__AsksToMin__IdMin__31EC6D26" Association="PrayOnTheWayModel.FK__AsksToMin__IdMin__31EC6D26">
-            <End Role="Minyan" EntitySet="Minyans" />
-            <End Role="AsksToMinyan" EntitySet="AsksToMinyans" />
-          </AssociationSet>
           <EntitySet Name="AskMinyans" EntityType="PrayOnTheWayModel.AskMinyan" />
-          <AssociationSet Name="FK__AsksToMin__IdAsk__30F848ED" Association="PrayOnTheWayModel.FK__AsksToMin__IdAsk__30F848ED">
-            <End Role="AskMinyan" EntitySet="AskMinyans" />
-            <End Role="AsksToMinyan" EntitySet="AsksToMinyans" />
-          </AssociationSet>
           <EntitySet Name="Prayers" EntityType="PrayOnTheWayModel.Prayer" />
           <EntitySet Name="TimeAtTheDays" EntityType="PrayOnTheWayModel.TimeAtTheDay" />
           <AssociationSet Name="FK__AskMinyan__IdPra__2B3F6F97" Association="PrayOnTheWayModel.FK__AskMinyan__IdPra__2B3F6F97">
@@ -212,6 +192,15 @@
             <End Role="SafePointOnTheWay" EntitySet="SafePointOnTheWays" />
             <End Role="Minyan" EntitySet="Minyans" />
           </AssociationSet>
+          <EntitySet Name="AsksToMinyans" EntityType="PrayOnTheWayModel.AsksToMinyan" />
+          <AssociationSet Name="FK__AsksToMin__IdAsk__30F848ED" Association="PrayOnTheWayModel.FK__AsksToMin__IdAsk__30F848ED">
+            <End Role="AskMinyan" EntitySet="AskMinyans" />
+            <End Role="AsksToMinyan" EntitySet="AsksToMinyans" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AsksToMin__IdMin__31EC6D26" Association="PrayOnTheWayModel.FK__AsksToMin__IdMin__31EC6D26">
+            <End Role="Minyan" EntitySet="Minyans" />
+            <End Role="AsksToMinyan" EntitySet="AsksToMinyans" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Minyan">
           <Key>
@@ -224,22 +213,10 @@
           <Property Name="IdlocationMinyan" Type="Int64" Nullable="false" />
           <Property Name="NumOfPeopleInMinyan" Type="Int32" Nullable="false" />
           <Property Name="SuccessfullyMinyan" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="AsksToMinyans" Relationship="PrayOnTheWayModel.FK__AsksToMin__IdMin__31EC6D26" FromRole="Minyan" ToRole="AsksToMinyan" />
           <NavigationProperty Name="Prayer" Relationship="PrayOnTheWayModel.FK__Minyan__IdPrayer__2C3393D0" FromRole="Minyan" ToRole="Prayer" />
           <NavigationProperty Name="SafePointOnTheWay" Relationship="PrayOnTheWayModel.FK__Minyan__Idlocati__2D27B809" FromRole="Minyan" ToRole="SafePointOnTheWay" />
+          <NavigationProperty Name="AsksToMinyans" Relationship="PrayOnTheWayModel.FK__AsksToMin__IdMin__31EC6D26" FromRole="Minyan" ToRole="AsksToMinyan" />
         </EntityType>
-        <Association Name="FK__AsksToMin__IdMin__31EC6D26">
-          <End Type="PrayOnTheWayModel.Minyan" Role="Minyan" Multiplicity="1" />
-          <End Type="PrayOnTheWayModel.AsksToMinyan" Role="AsksToMinyan" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Minyan">
-              <PropertyRef Name="IdMinyan" />
-            </Principal>
-            <Dependent Role="AsksToMinyan">
-              <PropertyRef Name="IdMinyan" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="AskMinyan">
           <Key>
             <PropertyRef Name="IdAskMinyan" />
@@ -249,21 +226,9 @@
           <Property Name="Lng" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IdPrayer" Type="Int64" Nullable="false" />
           <Property Name="AskTime" Type="Time" Nullable="false" Precision="7" />
-          <NavigationProperty Name="AsksToMinyans" Relationship="PrayOnTheWayModel.FK__AsksToMin__IdAsk__30F848ED" FromRole="AskMinyan" ToRole="AsksToMinyan" />
           <NavigationProperty Name="Prayer" Relationship="PrayOnTheWayModel.FK__AskMinyan__IdPra__2B3F6F97" FromRole="AskMinyan" ToRole="Prayer" />
+          <NavigationProperty Name="AsksToMinyans" Relationship="PrayOnTheWayModel.FK__AsksToMin__IdAsk__30F848ED" FromRole="AskMinyan" ToRole="AsksToMinyan" />
         </EntityType>
-        <Association Name="FK__AsksToMin__IdAsk__30F848ED">
-          <End Type="PrayOnTheWayModel.AskMinyan" Role="AskMinyan" Multiplicity="1" />
-          <End Type="PrayOnTheWayModel.AsksToMinyan" Role="AsksToMinyan" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AskMinyan">
-              <PropertyRef Name="IdAskMinyan" />
-            </Principal>
-            <Dependent Role="AsksToMinyan">
-              <PropertyRef Name="IdAskMinyan" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Prayer">
           <Key>
             <PropertyRef Name="IdPrayer" />
@@ -343,22 +308,47 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="AsksToMinyan">
+          <Key>
+            <PropertyRef Name="IdAsksToMinyan" />
+          </Key>
+          <Property Name="IdAsksToMinyan" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAskMinyan" Type="Int64" Nullable="false" />
+          <Property Name="IdMinyan" Type="Int64" Nullable="false" />
+          <Property Name="IsComming" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AskMinyan" Relationship="PrayOnTheWayModel.FK__AsksToMin__IdAsk__30F848ED" FromRole="AsksToMinyan" ToRole="AskMinyan" />
+          <NavigationProperty Name="Minyan" Relationship="PrayOnTheWayModel.FK__AsksToMin__IdMin__31EC6D26" FromRole="AsksToMinyan" ToRole="Minyan" />
+        </EntityType>
+        <Association Name="FK__AsksToMin__IdAsk__30F848ED">
+          <End Type="PrayOnTheWayModel.AskMinyan" Role="AskMinyan" Multiplicity="1" />
+          <End Type="PrayOnTheWayModel.AsksToMinyan" Role="AsksToMinyan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AskMinyan">
+              <PropertyRef Name="IdAskMinyan" />
+            </Principal>
+            <Dependent Role="AsksToMinyan">
+              <PropertyRef Name="IdAskMinyan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AsksToMin__IdMin__31EC6D26">
+          <End Type="PrayOnTheWayModel.Minyan" Role="Minyan" Multiplicity="1" />
+          <End Type="PrayOnTheWayModel.AsksToMinyan" Role="AsksToMinyan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Minyan">
+              <PropertyRef Name="IdMinyan" />
+            </Principal>
+            <Dependent Role="AsksToMinyan">
+              <PropertyRef Name="IdMinyan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="PrayOnTheWayModelStoreContainer" CdmEntityContainer="PrayOnTheWayEntities">
-          <EntitySetMapping Name="AsksToMinyans">
-            <EntityTypeMapping TypeName="PrayOnTheWayModel.AsksToMinyan">
-              <MappingFragment StoreEntitySet="AsksToMinyan">
-                <ScalarProperty Name="IdAsksToMinyan" ColumnName="IdAsksToMinyan" />
-                <ScalarProperty Name="IdAskMinyan" ColumnName="IdAskMinyan" />
-                <ScalarProperty Name="IdMinyan" ColumnName="IdMinyan" />
-                <ScalarProperty Name="IsComming" ColumnName="IsComming" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Minyans">
             <EntityTypeMapping TypeName="PrayOnTheWayModel.Minyan">
               <MappingFragment StoreEntitySet="Minyan">
@@ -409,6 +399,16 @@
                 <ScalarProperty Name="Lng" ColumnName="Lng" />
                 <ScalarProperty Name="Lat" ColumnName="Lat" />
                 <ScalarProperty Name="IdlocationMinyan" ColumnName="IdlocationMinyan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AsksToMinyans">
+            <EntityTypeMapping TypeName="PrayOnTheWayModel.AsksToMinyan">
+              <MappingFragment StoreEntitySet="AsksToMinyan">
+                <ScalarProperty Name="IsComming" ColumnName="IsComming" />
+                <ScalarProperty Name="IdMinyan" ColumnName="IdMinyan" />
+                <ScalarProperty Name="IdAskMinyan" ColumnName="IdAskMinyan" />
+                <ScalarProperty Name="IdAsksToMinyan" ColumnName="IdAsksToMinyan" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

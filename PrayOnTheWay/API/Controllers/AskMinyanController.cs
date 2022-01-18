@@ -17,36 +17,35 @@ namespace API.Controllers
         AskMinyanBLL askMinyanBll = new AskMinyanBLL();
         TimeAlgorithmics timeAlgorithmics = new TimeAlgorithmics();
         AlgorithmicPrayOnTheWay algorithmicPrayOnTheWay = new AlgorithmicPrayOnTheWay();
-
+        AskMinyanDTO askM;
         public bool AddAskMinyan(LocationPoint driverPoint)
         {
             long idPrayer = timeAlgorithmics.RecognizePrayer(driverPoint);
-            if(idPrayer == -1)
+            if (idPrayer == -1)
             {
-                //todo send to angular message-not time for pray
-                
+                //todo error1
+                ErrorServiceClass.error = 1;
             }
-             
-               
-            AskMinyanDTO askMinyan = new AskMinyanDTO {
-                LocationPoint = driverPoint ,
-                IdPrayer=idPrayer,
-                AskTime=DateTime.Now.TimeOfDay
+            AskMinyanDTO askMinyan = new AskMinyanDTO
+            {
+                LocationPoint = driverPoint,
+                IdPrayer = idPrayer,
+                AskTime = DateTime.Now.TimeOfDay
             };
-            if(askMinyanBll.AddAskMinyan(askMinyan))
-            {
-                AskMinyanDTO askM = GetAskMinyans().Find(a => 
-                        a.LocationPoint.Equals(driverPoint) && 
-                        a.IdPrayer == idPrayer && 
-                        a.AskTime.Equals(askMinyan.AskTime));
-                algorithmicPrayOnTheWay.Algorithmic(driverPoint, askM.IdAskMinyan);
-            }
-            else
+            if (!askMinyanBll.AddAskMinyan(askMinyan))
                 return false;
+
+            foreach (AskMinyanDTO askm in GetAskMinyans())
+            {
+                if ((askm.IdPrayer == idPrayer) &&
+                    (askm.LocationPoint.Equals(driverPoint)) &&
+                    (askm.AskTime.Equals(askMinyan.AskTime)))
+                { askM = askm; }
+            }
+            if (askM != null)
+                algorithmicPrayOnTheWay.Algorithmic(driverPoint, askM.IdAskMinyan);
+            //todo not askMinyan
             return true;
-
-
-
         }
         public List<AskMinyanDTO> GetAskMinyans()
         {

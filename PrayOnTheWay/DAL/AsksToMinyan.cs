@@ -17,9 +17,9 @@ namespace DAL
         public long IdAsksToMinyan { get; set; }
         public long IdAskMinyan { get; set; }
         public long IdMinyan { get; set; }
-        public string IsComming { get; set; }
+        public bool IsComming { get; set; }
     
-        public virtual Minyan Minyan { get; set; }
         public virtual AskMinyan AskMinyan { get; set; }
+        public virtual Minyan Minyan { get; set; }
     }
 }

@@ -28,9 +28,9 @@ namespace DAL
         public int NumOfPeopleInMinyan { get; set; }
         public bool SuccessfullyMinyan { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AsksToMinyan> AsksToMinyans { get; set; }
         public virtual Prayer Prayer { get; set; }
         public virtual SafePointOnTheWay SafePointOnTheWay { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AsksToMinyan> AsksToMinyans { get; set; }
     }
 }
