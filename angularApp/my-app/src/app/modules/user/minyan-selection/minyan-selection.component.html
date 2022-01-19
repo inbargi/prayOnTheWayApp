@@ -33,7 +33,7 @@
 </div>
 </button> -->
 
-<mat-card *ngFor="let selectMinyan of selects">
+<mat-card *ngFor="let selectMinyan of selects" class="select">
     <mat-card-title>
         <div>
             <span class="min">דקות {{selectMinyan.TimeDriver}}</span>
@@ -47,7 +47,7 @@
     </mat-card-subtitle>
     <mat-card-content>
         <div class="numOfPeople">
-            <mat-icon matBadge={{selectMinyan.NumOfPeople}}></mat-icon>
+            <mat-icon matBadge={{selectMinyan.NumOfPeople}} >Groups</mat-icon>
         </div>
         <div class="PercentSuccess">
             <p>אחוזי הצלחה בעבר:</p>

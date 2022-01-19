@@ -18,6 +18,7 @@ namespace API.Controllers
         TimeAlgorithmics timeAlgorithmics = new TimeAlgorithmics();
         AlgorithmicPrayOnTheWay algorithmicPrayOnTheWay = new AlgorithmicPrayOnTheWay();
         AskMinyanDTO askM;
+        [HttpPost]
         public bool AddAskMinyan(LocationPoint driverPoint)
         {
             long idPrayer = timeAlgorithmics.RecognizePrayer(driverPoint);

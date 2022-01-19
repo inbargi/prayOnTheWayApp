@@ -99,6 +99,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AskMinyanController.cs" />
     <Compile Include="Controllers\AsksToMinyanController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\MinyanController.cs" />
     <Compile Include="Controllers\PrayerController.cs" />

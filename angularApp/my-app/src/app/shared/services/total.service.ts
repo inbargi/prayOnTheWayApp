@@ -14,7 +14,7 @@ export class TotalService {
   }
   totalSoFar(idAskMinyan:number | null | undefined):Observable<number>
   {
-    return this.http.get<number>(environment.api_url+'totalSoFar/GetTotalSoFar/'+idAskMinyan);
+    return this.http.get<number>(environment.api_url+'totalSoFar/GetTotalSoFar?idAskMinyan='+idAskMinyan);
   };
 }
   

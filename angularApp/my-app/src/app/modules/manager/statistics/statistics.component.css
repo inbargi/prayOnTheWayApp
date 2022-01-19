@@ -26,15 +26,15 @@ p{
 #s3{
     background-color: rgb(212, 149, 212);
 }
-#s1 :hover{
+#s1:hover{
     color: rgb(124, 39, 124);
     background-color: white;
 }
-#s2 :hover{
+#s2:hover{
     color: rgb(161, 87, 161);
     background-color: white;
 }
-#s3 :hover{
+#s3:hover{
     color: rgb(212, 149, 212);
     background-color: white;
 }
@@ -48,14 +48,30 @@ p{
 #line-chart{
     background-color: rgb(100, 75, 189);
 }
+#line-chart:hover{
+    color: rgb(100, 75, 189);
+    background-color: rgb(140, 115, 230);
+}
 #bar-chart{
     background-color: rgb(76, 54, 158);
+}
+#bar-chart:hover{
+    color: rgb(76, 54, 158);
+    background-color: rgb(97, 65, 211);
 }
 #pie-chart{
     background-color: rgb(60, 34, 153);
 
 }
+#pie-chart:hover{
+    color: rgb(60, 34, 153);
+    background-color:rgb(97, 65, 211);
+}
 #doughnut-chart{
     background-color: rgb(40, 13, 138);
 
+}
+#doughnut-chart:hover{
+    color: rgb(40, 13, 138);
+    background-color: rgb(97, 65, 211);
 }

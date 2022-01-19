@@ -17,6 +17,7 @@ export class AskMinyanService {
 
   driverLocation(location:LocationPoint):Observable<AskMinyan>
   {
+    console.log("ask:"+location)
      return this.http.post(environment.api_url+'AskMinyan',location)
   }
 

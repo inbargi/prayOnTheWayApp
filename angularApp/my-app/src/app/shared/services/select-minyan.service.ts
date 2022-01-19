@@ -13,7 +13,8 @@ export class SelectMinyanService {
   constructor(private http:HttpClient) { }
   updateSelectMinyan(location:LocationPoint):Observable<SelectMinyan[]>
   {
-    return this.http.get<SelectMinyan[]>(environment.api_url+'selectMinyan/DataToSelectionMinyan/'+location);
+    console.log("sele:"+location)
+    return this.http.post<SelectMinyan[]>(environment.api_url+'selectMinyan/DataToSelectionMinyan?location=',location);
   } 
  
 }

@@ -11,13 +11,13 @@ using System.Web.Http.Cors;
 
 namespace API.Controllers
 {
+    [EnableCors("*", "*", "*")]
+
     public class SelectMinyanController : ApiController
     {
         MinyanAlgorithmics minyanAlgorithmics = new MinyanAlgorithmics();
 
-        [EnableCors("*", "*", "*")]
-        [Route("{location}")]
-        [HttpGet]
+        [HttpPost]
         public SelectMinyan[] DataToSelectionMinyan(LocationPoint location)
         {
             List<MinyanDTO> driverOptions = minyanAlgorithmics.SearchMatchMinyan(location);
