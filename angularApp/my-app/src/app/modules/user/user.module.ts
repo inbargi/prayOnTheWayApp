@@ -16,6 +16,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 const routes: Routes = [
   {path:'',component:UserHomeComponent},
+  {path:'live-map',component:RoadNavComponent},
   {path:'time-is-up',component:TimeIsUpComponent},
   {path:'total-so-far',component:TotalSoFarComponent},
   {path:'feedback',component:FeedbackComponent},
