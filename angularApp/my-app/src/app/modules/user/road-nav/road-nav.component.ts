@@ -32,7 +32,7 @@ export class RoadNavComponent implements OnInit {
   ngOnInit(): void {
  
   }
-  async launchWaze(lat:string, lng:string):Promise<void> {
+  /* async launchWaze(lat:string, lng:string):Promise<void> {
     let url:string = 'waze://?ll=${lat},${lng}';
     let fallbackUrl ='https://waze.com/ul?ll=${lat.toString()},${lng.toString()}&navigate=yes&zoom=13';
     try {
@@ -43,6 +43,6 @@ export class RoadNavComponent implements OnInit {
     } catch (e) {
       await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
     }
-  }
+  } */
 }
 
