@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DTO.StatisticDTO.StatisticDataDTO">
+    <Position X="6.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEACAAAAAAAAAAAAA=</HashCode>
+      <FileName>StatisticDTO\StatisticDataDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.AskMinyanDTO">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAQAAAAAAAIAAIAAAAAEAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>AskMinyanDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.AskPrayerResult">
+    <Position X="6.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AskPrayerResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.AsksToMinyanDTO">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAACABBAACAA=</HashCode>
+      <FileName>AsksToMinyanDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.LocationPoint">
+    <Position X="1.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAACAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LocationPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.MinyanDTO">
+    <Position X="5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAACAAAAAAAAAAABIgAACAIAA=</HashCode>
+      <FileName>MinyanDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.OptionalMinyan">
+    <Position X="6.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OptionalMinyan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.PrayerDTO">
+    <Position X="3.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAIAICAAAAAAAAAAABAEAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>PrayerDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.SafePointOnTheWayDTO">
+    <Position X="1" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ARAAAAAAACAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SafePointOnTheWayDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.SelectionDTO">
+    <Position X="6.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>selectionDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.TimeAtTheDayDTO">
+    <Position X="1" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAiAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>TimeAtTheDayDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

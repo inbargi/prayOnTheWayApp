@@ -135,7 +135,7 @@ namespace BLL.Algoritmics
             }
         }
 
-        private long GetIDByPoint(LocationPoint point)
+        public long GetIDByPoint(LocationPoint point)
         {
             List<SafePointOnTheWayDTO> safes = safePointOnTheWayBLL.GetSafePointOnTheWays();
             foreach (var safe in safes)
@@ -147,7 +147,7 @@ namespace BLL.Algoritmics
             }
             return -1;
         }
-        private long GetIdMinyanByIdPoint(long idPoint)
+        public long GetIdMinyanByIdPoint(long idPoint)
         {
             List<MinyanDTO> minyans = minyanBll.GetMinyans();
             foreach (var minyan in minyans)
