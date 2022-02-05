@@ -16,7 +16,7 @@ namespace BLL
        
         /*public void */
 
-        public bool AddAskMinyan(AskMinyanDTO AskMinyan)
+        public long AddAskMinyan(AskMinyanDTO AskMinyan)
         {
             //todo Check what prayer
             return askMinyanDAL.AddAskMinyan(Converts.AskMinyanConvert.ConvertDTOToDAL(AskMinyan));

@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { LocationPoint } from '../models/locationPoint.model';
 import { SelectMinyan } from '../models/selectMinyan.model';
+import { Result } from '../models/result.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,9 @@ import { SelectMinyan } from '../models/selectMinyan.model';
 export class SelectMinyanService {
 
   constructor(private http:HttpClient) { }
-  updateSelectMinyan(location:LocationPoint):Observable<SelectMinyan[]>
+  updateSelectMinyan(selectsMinyan:SelectMinyan[],IdAskMinyan:number,idSelect:number):Observable<Result>
   {
-    console.log("sele:"+location)
-    return this.http.post<SelectMinyan[]>(environment.api_url+'selectMinyan/DataToSelectionMinyan?location=',location);
+    return this.http.post<Result>(environment.api_url+'selectMinyan/SavingSelectionMinyan?selects=',selectsMinyan);
   } 
  
 }

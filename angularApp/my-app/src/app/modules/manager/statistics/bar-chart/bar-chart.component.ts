@@ -8,7 +8,7 @@ import { EChartsOption } from 'echarts';
 })
 export class BarChartComponent implements OnInit {
 
-  @Input() barChartData:any[] = []
+  @Input() barChartData:any[] = [[],[]]
   initOpts = {
     renderer: 'svg',
     width: 300,
@@ -32,7 +32,7 @@ export class BarChartComponent implements OnInit {
     xAxis: [
       {
         type: 'category',
-        data: ['ערבית', 'שחרית', 'מנחה'],
+        data: this.barChartData[0],
         axisTick: {
           alignWithLabel: true
         }
@@ -45,7 +45,7 @@ export class BarChartComponent implements OnInit {
       name: '',
       type: 'bar',
       barWidth: '60%',
-      data: [10, 52, 200, 334, 390, 330, 220]
+      data: this.barChartData[1]
     }]
   }
 

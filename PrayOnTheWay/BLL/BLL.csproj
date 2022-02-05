@@ -111,7 +111,6 @@
     <Compile Include="Algoritmics\LocationAlgorithmics.cs" />
     <Compile Include="ManagerBLL.cs" />
     <Compile Include="Models\optionalLocation.cs" />
-    <Compile Include="Models\SelectMinyan.cs" />
     <Compile Include="PrayerBll.cs" />
     <Compile Include="Converts\AsksToMinyanConvert.cs" />
     <Compile Include="Converts\MinyanConvert.cs" />

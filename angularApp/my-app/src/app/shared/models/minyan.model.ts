@@ -10,8 +10,7 @@ export class Minyan
     public  IdLocationMinyan?:number,
     public  NumOfPeopleInMinyan?:number,
     public  SuccessfullyMinyan?:Boolean
-    )
-    {
-        
-    }
+    ){}
 }
+
+

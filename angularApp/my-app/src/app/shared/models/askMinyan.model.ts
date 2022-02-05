@@ -6,8 +6,7 @@ export class AskMinyan
     public  Lng?:number,
     public  IdPrayer?:number,
     public  AskTime?:string
-    )
-    {
-        
-    }
+    ){}
 }
+
+

@@ -4,8 +4,5 @@ export class TimeAtTheDay
     public  IdTime?:number,
     public  Descreption?:string,
     public  SuitableFunc?:string 
-    )
-    {
-        
-    }
+    ){}
 }

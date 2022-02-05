@@ -13,7 +13,6 @@ namespace BLL
         SafePointOnTheWayDAL safePointOnTheWayDAL = new SafePointOnTheWayDAL();
         public bool AddSafePointOnTheWay(SafePointOnTheWayDTO safePointOnTheWay)
         {
-
             return safePointOnTheWayDAL.AddSafePointOnTheWay(Converts.SafePointOnTheWayConvert.ConvertDTOToDAL(safePointOnTheWay));
         }
         public List<SafePointOnTheWayDTO> GetSafePointOnTheWays()

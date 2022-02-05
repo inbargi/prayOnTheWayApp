@@ -15,12 +15,12 @@ namespace API.Controllers
     public class PrayerController : ApiController
     {
         PrayerBll prayerBll = new PrayerBll();
-
+        [HttpPost]
         public bool AddPrayer(PrayerDTO prayer)
         {
             return prayerBll.AddPrayer(prayer);
-            
         }
+        [HttpGet]
         public List<PrayerDTO> GetPrayers()
         {
             return prayerBll.GetPrayers();

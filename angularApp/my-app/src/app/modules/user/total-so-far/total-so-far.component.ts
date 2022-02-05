@@ -10,9 +10,9 @@ import { TotalService } from 'src/app/shared/services/total.service';
 export class TotalSoFarComponent implements OnInit {
 
   constructor(private totalService: TotalService, private informationService:InformationService) { }
-  totalNumOfPeople:number=9;
+  totalNumOfPeople!:number;
   ngOnInit(): void {
-    this.totalService.totalSoFar(this.informationService.askMinyan.IdAskMinyan)
+    this.totalService.totalSoFar(this.informationService.resultAlgorithm.IdAskMinyan!)
     .subscribe(res => {this.totalNumOfPeople = res})
   }
 

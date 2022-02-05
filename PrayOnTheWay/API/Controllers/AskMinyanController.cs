@@ -17,37 +17,39 @@ namespace API.Controllers
         AskMinyanBLL askMinyanBll = new AskMinyanBLL();
         TimeAlgorithmics timeAlgorithmics = new TimeAlgorithmics();
         AlgorithmicPrayOnTheWay algorithmicPrayOnTheWay = new AlgorithmicPrayOnTheWay();
-        AskMinyanDTO askM;
         [HttpPost]
-        public bool AddAskMinyan(LocationPoint driverPoint)
+        public ResultDTO AddAskMinyan(LocationPoint driverPoint)
         {
+            //the location is sent to RecognizePrayer Function.
             long idPrayer = timeAlgorithmics.RecognizePrayer(driverPoint);
             if (idPrayer == -1)
             {
-                //todo error1
+                idPrayer = 1;
+                //if the recognize has a mistake it's will save an 1 error code 
                 ErrorServiceClass.error = 1;
+
             }
+            //saving askMinyan
             AskMinyanDTO askMinyan = new AskMinyanDTO
             {
                 LocationPoint = driverPoint,
                 IdPrayer = idPrayer,
                 AskTime = DateTime.Now.TimeOfDay
             };
-            if (!askMinyanBll.AddAskMinyan(askMinyan))
-                return false;
-
-            foreach (AskMinyanDTO askm in GetAskMinyans())
-            {
-                if ((askm.IdPrayer == idPrayer) &&
-                    (askm.LocationPoint.Equals(driverPoint)) &&
-                    (askm.AskTime.Equals(askMinyan.AskTime)))
-                { askM = askm; }
-            }
-            if (askM != null)
-                algorithmicPrayOnTheWay.Algorithmic(driverPoint, askM.IdAskMinyan);
-            //todo not askMinyan
-            return true;
+            long idAskMinyan = askMinyanBll.AddAskMinyan(askMinyan);
+            ResultDTO r = algorithmicPrayOnTheWay.Algorithmic(driverPoint, idAskMinyan);
+            r.IdAskMinyan = idAskMinyan;
+            return r;
+            
+            //foreach (AskMinyanDTO askm in GetAskMinyans())
+            //{
+            //    if ((askm.IdPrayer == idPrayer) &&
+            //        (askm.LocationPoint.Equals(driverPoint)) &&
+            //        (askm.AskTime.Equals(askMinyan.AskTime)))
+            //    { askM = askm; }
+            //}
         }
+        [HttpGet]
         public List<AskMinyanDTO> GetAskMinyans()
         {
             return askMinyanBll.GetAskMinyans();

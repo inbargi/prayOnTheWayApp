@@ -14,12 +14,12 @@ namespace API.Controllers
     public class AsksToMinyanController : ApiController
     {
        AsksToMinyanBLL asksToMinyanBll = new AsksToMinyanBLL();
-
+        [HttpPost]
         public bool AddAsksToMinyan(AsksToMinyanDTO asksToMinyan)
         {
             return asksToMinyanBll.AddAsksToMinyan(asksToMinyan);
-
         }
+        [HttpGet]
         public List<AsksToMinyanDTO> GetAsksToMinyans()
         {
             return asksToMinyanBll.GetAsksToMinyans();

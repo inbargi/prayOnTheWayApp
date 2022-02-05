@@ -25,9 +25,11 @@ namespace BLL.Algoritmics
             {
                 if (IsMinyanActive(m.IDMinyan))
                 {
-                    if (locationAlgorithmics.RouteDistanceInSecondOnModeDrive(driverLocation, locationAlgorithmics.GetLocationByIDMinyan(m.IDLocationMinyan)) < LocationAlgorithmics.R)
+                    LocationPoint destination = locationAlgorithmics.GetLocationByIDMinyan(m.IDLocationMinyan);
+                    if (timeAlgorithmics.IsOver18Mins(driverLocation,destination)&&locationAlgorithmics.RouteDistanceInKMOnModeDrive(driverLocation, destination) < LocationAlgorithmics.R)
                     {
-                        matchMinyan.Add(m);
+                        if (timeAlgorithmics.CheckTimeAlgorithmic(driverLocation, destination))
+                            matchMinyan.Add(m);
                     }
                 }
             }
@@ -85,9 +87,10 @@ namespace BLL.Algoritmics
 
         public int MinyansInPercent(long idLocationMinyan)
         {
-            List<MinyanDTO> minyans = minyanBll.GetMinyans();
+            Random random = new Random();
+            //List<MinyanDTO> minyans = minyanBll.GetMinyans();
 
-            return 1;
+            return random.Next(1, 101);
         }
 
         public AsksToMinyanDTO CreateMinyan(LocationPoint driverLocation, long idAskMinyan)
@@ -159,35 +162,46 @@ namespace BLL.Algoritmics
             }
             return -1;
         }
-        public AsksToMinyanDTO DriverOptions(LocationPoint driverLocation, long idAskMinyan)
+        public ResultDTO DriverOptions(LocationPoint driverLocation, long idAskMinyan)
         {
             List<MinyanDTO> driverOptions = SearchMatchMinyan(driverLocation);
             int c = driverOptions.Count;
+            ResultDTO r = new ResultDTO();
+
             switch (c)
             {
-                case 0: return CreateMinyan(driverLocation, idAskMinyan);
+                case 0: r.AsksToMinyanDTO= CreateMinyan(driverLocation, idAskMinyan);
+                    break;
+                    
 
                 case 1:
                     AddPrayerToMinyan(driverOptions[0].IDMinyan);
                     AsksToMinyanDTO asksToMinyan = new AsksToMinyanDTO
                     {
                         IdMinyan = driverOptions[0].IDMinyan,
-                        IdAskMinyan = idAskMinyan
+                        IdAskMinyan = idAskMinyan,
+                        IsComming = false
                     };
                     asksToMinyanBLL.AddAsksToMinyan(asksToMinyan);
-                    return asksToMinyan;
-
+                    r.AsksToMinyanDTO= asksToMinyan;
+                    break;
                 default:
                     {
                         List<SelectMinyan> selectMinyans = ShowAndChooseMinyans(driverLocation, driverOptions);
                         //todo send to angular ^\^
-                        long idSelected = 1;
-                        return SavingChoose(selectMinyans, idAskMinyan, idSelected);
 
+                        r.SelectMinyan = selectMinyans;
+
+                        //long idSelected = 1;
+                        //return SavingChoose(selectMinyans, idAskMinyan, idSelected);
+                        break;
 
                     }
+                   
 
             }
+            r.Error = ErrorServiceClass.error;
+            return r;
         }
         public List<SelectMinyan> ShowAndChooseMinyans(LocationPoint driverLocation, List<MinyanDTO> minyans)
         {
@@ -200,17 +214,19 @@ namespace BLL.Algoritmics
                     IdMinyan = m.IDMinyan,
                     NumKM = locationAlgorithmics.RouteDistanceInKMOnModeDrive(driverLocation, locationDestination),
                     NumOfPeople = m.NumOfPeopleInMinyan,
-                    TimeDriver = locationAlgorithmics.RouteDistanceInSecondOnModeDrive(driverLocation, locationDestination),
-                    PercentSuccess = 5
+                    TimeDriver = locationAlgorithmics.RouteDistanceInSecondOnModeDrive(driverLocation, locationDestination) / 60,
+                    PercentSuccess = MinyansInPercent(m.IDLocationMinyan)
                     //todo percentSuccess func
                 });
             }
             return selectMinyans;
         }
         //-----מ.ז נבחר מהאנגולר--מספר מזהה של בקשה---רשימת מנינים אפשריים---
-        public AsksToMinyanDTO SavingChoose(List<SelectMinyan> selectMinyans, long idAskMinyan, long idSelected)
+        public ResultDTO SavingChoose(List<SelectMinyan> selectMinyans, long idAskMinyan, int idSelected)
         {
-            AddPrayerToMinyan(idSelected);
+            ResultDTO r = new ResultDTO();
+            
+            AddPrayerToMinyan(selectMinyans[idSelected].IdMinyan);
             AsksToMinyanDTO asksToMinyan = new AsksToMinyanDTO
             {
                 IdMinyan = idSelected,
@@ -218,7 +234,9 @@ namespace BLL.Algoritmics
                 IsComming = false
             };
             asksToMinyanBLL.AddAsksToMinyan(asksToMinyan);
-            return asksToMinyan;
+            r.AsksToMinyanDTO = asksToMinyan;
+            r.IdAskMinyan = idAskMinyan;
+            return r;
         }
     }
 

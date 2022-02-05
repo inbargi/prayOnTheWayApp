@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RoadNavComponent } from './road-nav.component';
+import { LiveMapComponent } from './live-map.component';
 
-describe('RoadNavComponent', () => {
-  let component: RoadNavComponent;
-  let fixture: ComponentFixture<RoadNavComponent>;
+describe('LiveMapComponent', () => {
+  let component: LiveMapComponent;
+  let fixture: ComponentFixture<LiveMapComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RoadNavComponent ]
+      declarations: [ LiveMapComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RoadNavComponent);
+    fixture = TestBed.createComponent(LiveMapComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

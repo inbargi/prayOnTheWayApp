@@ -13,7 +13,7 @@ export class StatisticsComponent implements OnInit {
   diagrams=["line-chart","bar-chart","pie-chart","doughnut-chart"]
   statistics_chart=[[this.diagrams[0]],[this.diagrams[1],this.diagrams[2],this.diagrams[3]],[this.diagrams[2],this.diagrams[3]]]
   lineChartData:any[]=[[],[]];
-  barChartData:     any[]=[];
+  barChartData:     any[]=[[],[]];
   pieChartData:     any[]=[];
   doughnutChartData:any[]=[];
 
@@ -33,16 +33,34 @@ export class StatisticsComponent implements OnInit {
     
     this.statisticsService.numberAskayers().subscribe(res=>
       {
-          this.pieChartData=res;
+          this.pieChartData=res;    
+          this.doughnutChartData=res;
           for(let data of res)
           {
+            this.barChartData=[[],[]]
+            this.lineChartData=[[],[]]
             this.lineChartData[0].push(data.name)
             this.lineChartData[1].push(data.value)
-
+            this.barChartData[0].push(data.name)
+            this.barChartData[1].push(data.value)
           }
-          console.log(res)
       }
-      )
+    )
+    this.statisticsService.successfullyMinyan().subscribe(res=>
+      {
+          this.pieChartData=res;    
+          this.doughnutChartData=res;
+          for(let data of res)
+          {
+            this.barChartData=[[],[]]
+            this.lineChartData=[[],[]]
+            this.lineChartData[0].push(data.name)
+            this.lineChartData[1].push(data.value)
+            this.barChartData[0].push(data.name)
+            this.barChartData[1].push(data.value)
+          }
+      }
+    )
 
     /*this.prayerSevice.getPrayers().subscribe((res:Prayer[])=>this.prayers=res)*/
   }

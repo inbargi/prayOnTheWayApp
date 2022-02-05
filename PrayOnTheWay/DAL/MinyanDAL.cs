@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
 namespace DAL
 {
@@ -20,8 +21,9 @@ namespace DAL
                     DB.SaveChanges();
                     return true;
                 }
-                catch (Exception )
+                catch (DbUpdateException e)
                 {
+                    Console.WriteLine(e.InnerException.InnerException.Message);
                     throw;
                 }
             }

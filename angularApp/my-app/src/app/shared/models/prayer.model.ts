@@ -6,9 +6,6 @@ export class Prayer
     public  IdTime?:number,
     public  LastTimeToday?:number,
     public  PrayTimeLength?: number
-    )
-    {
-        
-    }
+    ){}
 }
 

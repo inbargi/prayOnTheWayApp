@@ -4,8 +4,8 @@ export class SafePointOnTheWay
     public  IdLocationMinyan?:number,
     public  Lat?:number,
     public  Lng?:number
-    )
-    {
-        
-    }
+    ){}
 }
+
+
+

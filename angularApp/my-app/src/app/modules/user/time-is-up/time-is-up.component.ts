@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InformationService } from 'src/app/shared/services/information.service';
 
 @Component({
   selector: 'app-time-is-up',
@@ -7,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimeIsUpComponent implements OnInit {
 
-  constructor() { }
-  error:number = 3;
+  constructor(private informationService:InformationService) { }
+  error !: number
   ngOnInit(): void {
-    
+    console.log("error: (time-is-up): "+this.informationService.resultAlgorithm.Error)
+    this.error = this.informationService.resultAlgorithm.Error!
   }
 
 }

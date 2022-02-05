@@ -41,13 +41,7 @@ export class DoughnutChartComponent implements OnInit {
             labelLine: {
                 show: false
             },
-            data: [
-                {value: 1048, name: ''},
-                {value: 735, name: ''},
-                {value: 580, name: ''},
-                {value: 484, name: ''},
-                {value: 300, name: ''}
-            ]
+            data: this.doughnutChartData
         }
     ]
 /*};

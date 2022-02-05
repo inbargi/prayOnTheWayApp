@@ -49,13 +49,6 @@
       <FileName>Models\optionalLocation.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BLL.Models.SelectMinyan">
-    <Position X="10" Y="2.25" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAACAAAAAAwg=</HashCode>
-      <FileName>Models\SelectMinyan.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="BLL.AskMinyanBLL">
     <Position X="9.75" Y="4.5" Width="2" />
     <TypeIdentifier>
@@ -108,7 +101,7 @@
   <Class Name="BLL.TimeAtTheDayBLL">
     <Position X="3" Y="4.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAhAgAQAABAAAAIAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAhAgAQAAAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>TimeAtTheDayBLL.cs</FileName>
     </TypeIdentifier>
   </Class>

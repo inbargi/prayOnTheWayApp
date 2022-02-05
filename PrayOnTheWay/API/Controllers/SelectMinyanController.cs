@@ -18,32 +18,10 @@ namespace API.Controllers
         MinyanAlgorithmics minyanAlgorithmics = new MinyanAlgorithmics();
 
         [HttpPost]
-        public SelectMinyan[] DataToSelectionMinyan(LocationPoint location)
+        public ResultDTO SavingSelectionMinyan(List<SelectMinyan> selectMinyans, long idAskMinyan, int idSelected)
         {
-            List<MinyanDTO> driverOptions = minyanAlgorithmics.SearchMatchMinyan(location);
-            List<SelectMinyan> selectMinyan = minyanAlgorithmics.ShowAndChooseMinyans(location, driverOptions);
-            SelectMinyan[] selectMinyans = new SelectMinyan[selectMinyan.Count];
-            int i = 0;
-            foreach(SelectMinyan sm in selectMinyans)
-            {
-                selectMinyans[i] = sm;
-                i++;
-            }
-            return selectMinyans;
+            return minyanAlgorithmics.SavingChoose(selectMinyans, idAskMinyan, idSelected);
         }
-
-        //public SelectMinyan[] DataToSelectionMinyans()
-        //{
-              
-        //}
-
-
-
-
-          
-
-
-
 
         // GET api/<controller>
         public IEnumerable<string> Get()

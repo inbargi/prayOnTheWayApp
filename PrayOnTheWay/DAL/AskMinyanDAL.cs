@@ -12,7 +12,7 @@ namespace DAL
     public class AskMinyanDAL
     {
 
-        public bool AddAskMinyan(AskMinyan askMinyan)
+        public long AddAskMinyan(AskMinyan askMinyan)
         {
             using (PrayOnTheWayEntities DB = new PrayOnTheWayEntities())
             {
@@ -20,8 +20,7 @@ namespace DAL
                 try
                 {
                     DB.SaveChanges();
-
-                    return true;
+                    return askMinyan.IdAskMinyan;
                 }
                 catch (DbUpdateException e)
                 {

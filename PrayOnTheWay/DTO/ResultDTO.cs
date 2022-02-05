@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class SelectionDTO
+    public class ResultDTO
     {
         public AsksToMinyanDTO AsksToMinyanDTO { get; set; }
-        public List<int> SelectMinyan { get; set; }
+        public long IdAskMinyan { get; set; }
+        public List<SelectMinyan> SelectMinyan { get; set; }
+        public int Error { get; set; }
     }
 }

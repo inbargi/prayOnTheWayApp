@@ -50,7 +50,8 @@
     <Compile Include="PrayerDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SafePointOnTheWayDTO.cs" />
-    <Compile Include="selectionDTO.cs" />
+    <Compile Include="ResultDTO.cs" />
+    <Compile Include="SelectMinyan.cs" />
     <Compile Include="StatisticDTO\StatisticDataDTO.cs" />
     <Compile Include="TimeAtTheDayDTO.cs" />
   </ItemGroup>

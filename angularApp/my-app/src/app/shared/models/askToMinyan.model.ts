@@ -5,8 +5,6 @@ export class AskToMinyan
     public  IdAskMinyan?:number,
     public  IdMinyan?:number,
     public  IsComming?:boolean
-    )
-    {
-        
-    }
+    ){}
 }
+

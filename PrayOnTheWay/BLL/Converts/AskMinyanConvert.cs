@@ -22,7 +22,6 @@ namespace BLL.Converts
                     Lat = askMinyan.Lat,
                     Lng = askMinyan.Lng,
                 }
-                
                 //AsksToMinyans=AsksToMinyanConvert.ConvertDALToDTOList(askMinyan.AsksToMinyans)
             };
         }

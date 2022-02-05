@@ -18,7 +18,6 @@ namespace API.Controllers
         public bool AddSafePointOnTheWay(SafePointOnTheWayDTO safePointOnTheWay)
         {
             return safePointOnTheWayBll.AddSafePointOnTheWay(safePointOnTheWay);
-
         }
         [HttpGet]
         public List<SafePointOnTheWayDTO> GetSafePointOnTheWays()

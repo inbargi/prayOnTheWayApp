@@ -83,7 +83,7 @@ namespace BLL
             IRestResponse response = client.Execute(request);
             XDocument xmlResult = XDocument.Parse(response.Content);
             int timeInKM = ConvertXmlToKM(xmlResult);
-            return timeInKM / 100;
+            return timeInKM / 1000;
         }
         public List<OptionalLocation> ConvertXmlToList(XDocument xmlResult)
         {

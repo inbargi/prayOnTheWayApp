@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AskMinyan } from '../models/askMinyan.model';
 import { LocationPoint } from '../models/locationPoint.model';
+import { Result } from '../models/result.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +16,7 @@ export class AskMinyanService {
      
   }
 
-  driverLocation(location:LocationPoint):Observable<AskMinyan>
+  driverLocation(location:LocationPoint):Observable<Result>
   {
     console.log("ask:"+location)
      return this.http.post(environment.api_url+'AskMinyan',location)

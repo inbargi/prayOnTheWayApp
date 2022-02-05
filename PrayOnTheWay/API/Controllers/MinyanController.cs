@@ -14,12 +14,13 @@ namespace API.Controllers
     public class MinyanController : ApiController
     {
         MinyanBLL minyanBll = new MinyanBLL();
-
+        [HttpPost]
         public bool Addminyan(MinyanDTO minyan)
         {
             return minyanBll.AddMinyan(minyan);
 
         }
+        [HttpGet]
         public List<MinyanDTO> Getminyans()
         {
             new BLL.LocationAlgorithmics().FindOptionalLocations(new LocationPoint { Lat= "31.8701568", Lng= "34.7406336" });

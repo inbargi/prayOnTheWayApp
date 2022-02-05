@@ -14,6 +14,10 @@ export class StatisticsService {
   {
     return this.http.get<any[]>(environment.api_url+'statistic/DataToStatisticPrayer');
   }
- 
+
+ successfullyMinyan():Observable<any[]>
+ {
+   return this.http.get<any[]>(environment.api_url+'statistic/DataToStatisticSuccessfullyMinyan');
+ }
 
 }

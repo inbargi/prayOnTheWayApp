@@ -12,7 +12,7 @@ export class TotalService {
   constructor(private http:HttpClient, private informationService:InformationService) {
     
   }
-  totalSoFar(idAskMinyan:number | null | undefined):Observable<number>
+  totalSoFar(idAskMinyan:number):Observable<number>
   {
     return this.http.get<number>(environment.api_url+'totalSoFar/GetTotalSoFar?idAskMinyan='+idAskMinyan);
   };

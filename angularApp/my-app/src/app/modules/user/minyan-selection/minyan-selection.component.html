@@ -1,5 +1,13 @@
-<p id="title">מניינים נוספים באזור</p>
-
+<div id="title">
+    <div id="logo">
+        <img src="assets/images/logo.jpg" height="50px" width="50px" />
+    </div>
+    <div>
+        <p>מניינים נוספים באזור</p>
+    </div>
+    
+    
+  </div>
 <!-- <button *ngFor="let selectMinyan of selects" mat-raised-button color="accent" class="selectButton">
     <div class="select"> 
     <div class="km">
@@ -33,31 +41,29 @@
 </div>
 </button> -->
 
-<mat-card *ngFor="let selectMinyan of selects" class="select">
+<mat-card *ngFor="let selectMinyan of selects; let i=index" class="select">
     <mat-card-title>
         <div>
-            <span class="min">דקות {{selectMinyan.TimeDriver}}</span>
+            <span class="min"> {{selectMinyan.TimeDriver}} דקות</span>
         </div>
     </mat-card-title>
     <mat-card-subtitle>
         <div class="km">
-            <span class="numOfKM">ק"מ {{selectMinyan.NumKM}}</span>
+            <span class="numOfKM"> {{selectMinyan.NumKM}} ק"מ</span>
         </div>
-
+        <div class="numOfPeople">
+            <mat-icon matBadge={{selectMinyan.NumOfPeople}} >groups</mat-icon>
+        </div>
     </mat-card-subtitle>
     <mat-card-content>
-        <div class="numOfPeople">
-            <mat-icon matBadge={{selectMinyan.NumOfPeople}} >Groups</mat-icon>
-        </div>
         <div class="PercentSuccess">
-            <p>אחוזי הצלחה בעבר:</p>
+            <p> אחוזי הצלחה בעבר:</p>
             <mat-progress-bar mode="determinate" value={{selectMinyan.PercentSuccess}}></mat-progress-bar>
         </div>
-
     </mat-card-content>
     <mat-card-actions>
-        <button mat-button>
-            <span class="material-icons">navigate_next</span>
+        <button mat-button click="SavingChoose(i)">
+            <span class="material-icons" >navigate_next</span>
         </button>
     </mat-card-actions>
 </mat-card>

@@ -63,11 +63,11 @@
       <FileName>SafePointOnTheWayDTO.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DTO.SelectionDTO">
+  <Class Name="DTO.ResultDTO">
     <Position X="6.75" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAABACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>selectionDTO.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAQBACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ResultDTO.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DTO.TimeAtTheDayDTO">

@@ -14,12 +14,12 @@ namespace API.Controllers
     public class TimeAtTheDayController : ApiController
     {
         TimeAtTheDayBLL timeAtTheDayBll = new TimeAtTheDayBLL();
-
+        [HttpPost]
         public bool AddtimeAtTheDay(TimeAtTheDayDTO timeAtTheDay)
         {
             return timeAtTheDayBll.AddTimeAtTheDay(timeAtTheDay);
-
         }
+        [HttpGet]
         public List<TimeAtTheDayDTO> GettimeAtTheDays()
         {
             return timeAtTheDayBll.GetTimeAtTheDays();

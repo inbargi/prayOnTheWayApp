@@ -90,32 +90,36 @@ namespace BLL
             }
             return -1;
         }
+        //detects prayer according to the time of location
         public long RecognizePrayer(LocationPoint driverPoint)
         {
+            //gets current time of location
             TimeSpan currentTime = DateTime.Now.TimeOfDay;
+            //gets all prayers
             List<PrayerDTO> prayers = prayerBll.GetPrayers();
             foreach (PrayerDTO pray in prayers)
             {
+                //gets the earliest and latest time of each prayer
                 TimeSpan beginingTime = GetTimeByTimeFunc(pray.IdTime, driverPoint);
                 TimeSpan lastTime = GetTimeByTimeFunc(pray.LastTimeToday, driverPoint);
                 TimeSpan chtoz = new TimeSpan(23, 59, 59);
-                //בערבית ישנה בעיה מבחינת חצות
+                //if ID is equal to 3 for "ערבית" there is another condition
+                //it could be that the condition is valid but mathematically it's not valid and therefore return -1
                 if (pray.IdPrayer == 3)
                 {
+                    //Dividing the code into two modes
                     if (currentTime.CompareTo(chtoz) <= 0)
+                        //if the current time before chtoz => checking if pass the earliest time of prayer
                         if (currentTime.CompareTo(beginingTime) > 0)
                             return pray.IdPrayer;
-                        else
+                   else
+                        //if the current time after chtoz => checking if not pass the latest time of prayer
                         if (currentTime.CompareTo(lastTime) < 0)
                             return pray.IdPrayer;
                 }
-                //עובד כשהזמן על אותו הציר
+                //ID is equalto 1 or 2 the condition is valid anyway
                 if (currentTime.CompareTo(beginingTime) > 0 && currentTime.CompareTo(lastTime) < 0)
                     return pray.IdPrayer;
-                //if (currentTime >= beginingTime && currentTime <= lastTime)
-                //{
-                //    return pray.IdPrayer;
-                //}
             }
             return -1;
         }
@@ -132,13 +136,15 @@ namespace BLL
                 }
             }
             return suitFunc;
-        }
+        }           
+        //LocationPoint driveLocationPoint = locationAlgorithmics.DriverLocation(idAskMinyan);
+
+
         public TimeSpan GetTimeByTimeFunc(long idTime, LocationPoint driverPoint)
         {
-
-            //LocationPoint driveLocationPoint = locationAlgorithmics.DriverLocation(idAskMinyan);
+            //time zone calculated by driver's location coordinates
             string timeZoneString = TimeZoneLookup.Iana((float)Convert.ToDouble(driverPoint.Lat), (float)Convert.ToDouble(driverPoint.Lng));
-
+            
             ITimeZone timeZone = new OlsonTimeZone(timeZoneString);
             GeoLocation location = new GeoLocation((float)Convert.ToDouble(driverPoint.Lat), (float)Convert.ToDouble(driverPoint.Lng), timeZone);
 
@@ -156,6 +162,7 @@ namespace BLL
             int getEndTimePray = (int)GetEndTimePray(driverLocation).TotalSeconds;
             if (navigationTime == 0 || prayTimeLength == -1 || getEndTimePray.Equals(new TimeSpan()))
                 return false;
+            
             if (currentTime + navigationTime + prayTimeLength > getEndTimePray)
             {
                 //todo error2

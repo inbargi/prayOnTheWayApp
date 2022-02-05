@@ -41,9 +41,9 @@
     <div id="showDiagram" [ngSwitch]="selectedDiagramaYour">
       <p>הצגת סטטיסטיקה</p>
         <app-line-chart *ngSwitchCase="1" [lineChartData]="lineChartData"></app-line-chart>
-        <app-bar-chart *ngSwitchCase="2"></app-bar-chart>
+        <app-bar-chart *ngSwitchCase="2" [barChartData]="barChartData"></app-bar-chart>
         <app-pie-chart *ngSwitchCase="3" [pieChartData]="pieChartData"></app-pie-chart>
-        <app-doughnut-chart *ngSwitchCase="4"></app-doughnut-chart>
+        <app-doughnut-chart *ngSwitchCase="4" [doughnutChartData]="doughnutChartData"></app-doughnut-chart>
         <app-line-chart *ngSwitchDefault></app-line-chart>
     </div>
 
