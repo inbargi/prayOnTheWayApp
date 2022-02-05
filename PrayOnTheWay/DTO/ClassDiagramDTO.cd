@@ -8,7 +8,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="DTO.AskMinyanDTO">
-    <Position X="5" Y="1.75" Width="1.5" />
+    <Position X="5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAIAQAAAAAAAIAAIAAAAAEAAAAAAAAAAAAAQA=</HashCode>
       <FileName>AskMinyanDTO.cs</FileName>
@@ -22,21 +22,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="DTO.AsksToMinyanDTO">
-    <Position X="3.25" Y="1.75" Width="1.5" />
+    <Position X="3.25" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAACABBAACAA=</HashCode>
       <FileName>AsksToMinyanDTO.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DTO.LocationPoint">
-    <Position X="1.5" Y="0.5" Width="1.5" />
+    <Position X="5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAAAAACAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>LocationPoint.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DTO.MinyanDTO">
-    <Position X="5" Y="4" Width="1.5" />
+    <Position X="3.5" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAABAAAAAAACAAAAAAAAAAABIgAACAIAA=</HashCode>
       <FileName>MinyanDTO.cs</FileName>
@@ -50,7 +50,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="DTO.PrayerDTO">
-    <Position X="3.25" Y="4" Width="1.5" />
+    <Position X="3.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACAAAIAICAAAAAAAAAAABAEAAAAAAAAAAAAAAAQA=</HashCode>
       <FileName>PrayerDTO.cs</FileName>
@@ -66,7 +66,7 @@
   <Class Name="DTO.ResultDTO">
     <Position X="6.75" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAQBACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAQBACAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ResultDTO.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -75,6 +75,13 @@
     <TypeIdentifier>
       <HashCode>gAAAAAAAAAAiAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>TimeAtTheDayDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.SelectMinyan">
+    <Position X="1.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAACAAAAAAwg=</HashCode>
+      <FileName>SelectMinyan.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
