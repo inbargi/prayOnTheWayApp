@@ -15,7 +15,7 @@ namespace API.Controllers
     {
         MinyanBLL minyanBll = new MinyanBLL();
         [HttpPost]
-        public bool Addminyan(MinyanDTO minyan)
+        public long Addminyan(MinyanDTO minyan)
         {
             return minyanBll.AddMinyan(minyan);
 

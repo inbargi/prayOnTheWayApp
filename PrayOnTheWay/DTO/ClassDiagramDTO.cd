@@ -36,7 +36,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="DTO.MinyanDTO">
-    <Position X="3.5" Y="0.5" Width="1.75" />
+    <Position X="3.5" Y="0.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAABAAAAAAACAAAAAAAAAAABIgAACAIAA=</HashCode>
       <FileName>MinyanDTO.cs</FileName>

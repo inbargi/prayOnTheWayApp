@@ -13,7 +13,6 @@ namespace BLL
         AsksToMinyanDAL asksToMinyanDAL = new AsksToMinyanDAL();
         public bool AddAsksToMinyan(AsksToMinyanDTO AsksToMinyan)
         {
-
             return asksToMinyanDAL.AddAsksToMinyan(Converts.AsksToMinyanConvert.ConvertDTOToDAL(AsksToMinyan));
         }
         public List<AsksToMinyanDTO> GetAsksToMinyans()
@@ -42,3 +41,4 @@ namespace BLL
         }
     }
 }
+

@@ -92,29 +92,35 @@ namespace BLL.Algoritmics
 
             return random.Next(1, 101);
         }
-
+        //create minyan by location and id of the request
         public AsksToMinyanDTO CreateMinyan(LocationPoint driverLocation, long idAskMinyan)
         {
+            //find the optional location
             List<OptionalLocation> optionals = locationAlgorithmics.FindOptionalLocations(driverLocation);
+            //saving the number of optional location
             int c = optionals.Count;
+            //according to number
             switch (c)
             {
+                //if there is not one
                 case 0:
                     {
-                        //todo error4
+                        //saving error message at class and return null
                         ErrorServiceClass.error = 4;
-                        return new AsksToMinyanDTO();
+                        return null;
                     }
-
+                //if there is at least one
                 default:
-                    safePointOnTheWayBLL.AddSafePointOnTheWay(
+                    { 
+                    //saving the safe point
+                    long idLocationSafePoint = safePointOnTheWayBLL.AddSafePointOnTheWay(
                         new SafePointOnTheWayDTO
                         {
                             Lat = optionals[0].Point.Lat,
                             Lng = optionals[0].Point.Lng
                         });
-                    long idLocationSafePoint = GetIDByPoint(optionals[0].Point);
-                    minyanBll.AddMinyan(
+                    //create a new minyan according to data
+                    long idMinyan = minyanBll.AddMinyan(
                     new MinyanDTO
                     {
                         IDPrayer = timeAlgorithmics.RecognizePrayer(driverLocation),
@@ -124,8 +130,7 @@ namespace BLL.Algoritmics
                         NumOfPeopleInMinyan = 1,
                         SuccessfullyMinyan = false
                     });
-                    long idMinyan = GetIdMinyanByIdPoint(idLocationSafePoint);
-
+                    //Saving request to this minyan and assign iscomming to the value false
                     AsksToMinyanDTO asksToMinyan = new AsksToMinyanDTO
                     {
                         IdMinyan = idMinyan,
@@ -133,8 +138,8 @@ namespace BLL.Algoritmics
                         IsComming = false
                     };
                     asksToMinyanBLL.AddAsksToMinyan(asksToMinyan);
-
                     return asksToMinyan;
+                    }
             }
         }
 
@@ -197,7 +202,6 @@ namespace BLL.Algoritmics
                         break;
 
                     }
-                   
 
             }
             r.Error = ErrorServiceClass.error;

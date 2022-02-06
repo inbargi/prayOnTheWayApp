@@ -15,7 +15,7 @@ namespace API.Controllers
     {
         SafePointOnTheWayBLL safePointOnTheWayBll = new SafePointOnTheWayBLL();
         [HttpPost]
-        public bool AddSafePointOnTheWay(SafePointOnTheWayDTO safePointOnTheWay)
+        public long AddSafePointOnTheWay(SafePointOnTheWayDTO safePointOnTheWay)
         {
             return safePointOnTheWayBll.AddSafePointOnTheWay(safePointOnTheWay);
         }

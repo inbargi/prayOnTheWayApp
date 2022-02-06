@@ -11,7 +11,7 @@ namespace BLL
     public class MinyanBLL
     {
         MinyanDAL minyanDAL = new MinyanDAL();
-        public bool AddMinyan(MinyanDTO minyan)
+        public long AddMinyan(MinyanDTO minyan)
         {
             return minyanDAL.AddMinyan(Converts.MinyanConvert.ConvertDTOToDAL(minyan));
         }

@@ -1,140 +1,140 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="BLL.Converts.AskMinyanConvert">
-    <Position X="5.25" Y="2.5" Width="2" />
+    <Position X="8.75" Y="2.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAgAAAACAAAAAAEAAA=</HashCode>
       <FileName>Converts\AskMinyanConvert.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.Converts.AsksToMinyanConvert">
-    <Position X="3" Y="2.5" Width="2" />
+    <Position X="6.5" Y="2.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAgAAAACAAAAAAEAAA=</HashCode>
       <FileName>Converts\AsksToMinyanConvert.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.Converts.MinyanConvert">
-    <Position X="3" Y="0.5" Width="2" />
+    <Position X="6.5" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAgAAAACAAAAAAEAAA=</HashCode>
       <FileName>Converts\MinyanConvert.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.Converts.PrayerConvert">
-    <Position X="5.25" Y="0.5" Width="2" />
+    <Position X="8.75" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAgAAAACAAAAAAEAAA=</HashCode>
       <FileName>Converts\PrayerConvert.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.Converts.SafePointOnTheWayConvert">
-    <Position X="7.5" Y="0.5" Width="2.25" />
+    <Position X="11" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAgAAAACAAAAAAEAAA=</HashCode>
       <FileName>Converts\SafePointOnTheWayConvert.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.Converts.TimeAtTheDayConvert">
-    <Position X="7.5" Y="2.5" Width="2.25" />
+    <Position X="11" Y="2.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAgAAAACAAAAAAEAAA=</HashCode>
       <FileName>Converts\TimeAtTheDayConvert.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.Models.OptionalLocation">
-    <Position X="10" Y="0.5" Width="1.75" />
+    <Position X="13.5" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\optionalLocation.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.AskMinyanBLL">
-    <Position X="9.75" Y="4.5" Width="2" />
+    <Position X="13.25" Y="4.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAIAAAAIAAAAAAAAEAAAAAAAAAAAAAAAAAAAACAAIQ=</HashCode>
       <FileName>AskMinyanBLL.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.AsksToMinyanBLL">
-    <Position X="7.25" Y="4.5" Width="2.25" />
+    <Position X="10.75" Y="4.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAIAAAAAAAAAAQAAAgAAAABCAAAAAQAAAA=</HashCode>
       <FileName>AsksToMinyanBLL.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.ManagerBLL">
-    <Position X="10.25" Y="7" Width="1.5" />
+    <Position X="13.75" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>ManagerBLL.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.MinyanBLL">
-    <Position X="5.5" Y="7" Width="1.75" />
+    <Position X="9" Y="7" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAIACAAAAEAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAA=</HashCode>
       <FileName>MinyanBLL.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.PrayerBll">
-    <Position X="5.25" Y="4.5" Width="1.75" />
+    <Position X="8.75" Y="4.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAAEAAAAAAAIAAAAAAAAAAAAAAAEAAAAg=</HashCode>
       <FileName>PrayerBll.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.SafePointOnTheWayBLL">
-    <Position X="3" Y="7" Width="2.25" />
+    <Position X="6.5" Y="7" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAhA=</HashCode>
       <FileName>SafePointOnTheWayBLL.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.StatisticBLL">
-    <Position X="7.5" Y="7" Width="2.5" />
+    <Position X="11" Y="7" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACAAAAAAAAAAABAAIAAAACAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>StatisticBLL.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.TimeAtTheDayBLL">
-    <Position X="3" Y="4.5" Width="2" />
+    <Position X="6.5" Y="4.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAhAgAQAAAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>TimeAtTheDayBLL.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.Algoritmics.AlgorithmicPrayOnTheWay">
-    <Position X="3" Y="9.5" Width="1.75" />
+    <Position X="6.5" Y="9.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>QAAAAAAABAAAAAAAQAAAAAIBAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Algoritmics\AlgorithmicPrayOnTheWay.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.Algoritmics.ErrorServiceClass">
-    <Position X="3" Y="12" Width="1.75" />
+    <Position X="6.5" Y="12" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Algoritmics\ErrorServiceClass.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.Algoritmics.MinyanAlgorithmics">
-    <Position X="10.25" Y="8.5" Width="2.25" />
+    <Position X="13.75" Y="8.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAFAAAAAAAAAEAAAJAEACAAAAACAAEIBABJCA=</HashCode>
       <FileName>Algoritmics\MinyanAlgorithmics.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.LocationAlgorithmics">
-    <Position X="5" Y="10" Width="2.75" />
+    <Position X="8.5" Y="10" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAEEAAAAABAAgAEAAAAAAAAAIAAAIAABAAIQA=</HashCode>
       <FileName>Algoritmics\LocationAlgorithmics.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.TimeAlgorithmics">
-    <Position X="8" Y="9.25" Width="2" />
+    <Position X="11.5" Y="9.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAABAACAlAAABAAAAAAAEAAAQCAAQAAIAAQAAAEIAIA=</HashCode>
       <FileName>Algoritmics\TimeAlgorithmics.cs</FileName>

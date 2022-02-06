@@ -9,7 +9,7 @@ namespace DAL
 {
     public class SafePointOnTheWayDAL
     {
-        public bool AddSafePointOnTheWay(SafePointOnTheWay safePointOnTheWay)
+        public long AddSafePointOnTheWay(SafePointOnTheWay safePointOnTheWay)
         {
             using (PrayOnTheWayEntities DB = new PrayOnTheWayEntities())
             {
@@ -17,7 +17,7 @@ namespace DAL
                 try
                 {
                     DB.SaveChanges();
-                    return true;
+                    return safePointOnTheWay.IdlocationMinyan;
                 }
                 catch (Exception)
                 {

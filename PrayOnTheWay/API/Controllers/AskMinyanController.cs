@@ -40,14 +40,6 @@ namespace API.Controllers
             ResultDTO r = algorithmicPrayOnTheWay.Algorithmic(driverPoint, idAskMinyan);
             r.IdAskMinyan = idAskMinyan;
             return r;
-            
-            //foreach (AskMinyanDTO askm in GetAskMinyans())
-            //{
-            //    if ((askm.IdPrayer == idPrayer) &&
-            //        (askm.LocationPoint.Equals(driverPoint)) &&
-            //        (askm.AskTime.Equals(askMinyan.AskTime)))
-            //    { askM = askm; }
-            //}
         }
         [HttpGet]
         public List<AskMinyanDTO> GetAskMinyans()
@@ -56,3 +48,4 @@ namespace API.Controllers
         }
     }
 }
+
