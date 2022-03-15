@@ -18,9 +18,9 @@ namespace API.Controllers
         MinyanAlgorithmics minyanAlgorithmics = new MinyanAlgorithmics();
 
         [HttpPost]
-        public ResultDTO SavingSelectionMinyan(List<SelectMinyan> selectMinyans, long idAskMinyan, int idSelected)
+        public ResultDTO SavingSelectionMinyan(SelectResult selectResult)
         {
-            return minyanAlgorithmics.SavingChoose(selectMinyans, idAskMinyan, idSelected);
+            return minyanAlgorithmics.SavingChoose(selectResult.SelectMinyan, selectResult.IdAskMinyan, selectResult.IdSelect);
         }
 
         // GET api/<controller>

@@ -1,17 +1,16 @@
 <div id="title">
-    <p> אנא כנסו שנית </p>
+    <p> המשך נסיעה בטוחה אנא פעל לפי ההנחייה </p>
   </div>
 <div *ngIf="error==1">
     <img src="assets/images/pocketwatch.png"  width="100%" />
 </div>
-<div *ngIf="error==2">
-    <p>אין זמן</p>
+<div *ngIf="error==4">
     <img src="assets/images/time_up.png"  width="100%" />
 </div>
 <div *ngIf="error==3">
     <img src="assets/images/validLocation.png"  width="100%" />
 </div>
-<div *ngIf="error==4">
+<div *ngIf="error==2">
     <img src="assets/images/safeLocation.png"  width="100%" />
 </div>
 

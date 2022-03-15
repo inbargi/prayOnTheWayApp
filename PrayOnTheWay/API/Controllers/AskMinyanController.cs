@@ -24,10 +24,9 @@ namespace API.Controllers
             long idPrayer = timeAlgorithmics.RecognizePrayer(driverPoint);
             if (idPrayer == -1)
             {
-                idPrayer = 1;
                 //if the recognize has a mistake it's will save an 1 error code 
                 ErrorServiceClass.error = 1;
-
+                
             }
             //saving askMinyan
             AskMinyanDTO askMinyan = new AskMinyanDTO

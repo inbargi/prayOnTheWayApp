@@ -1,9 +1,9 @@
 <div id="statistic">
     <div id="statistics">
         <p>בחר סטטיסטיקה </p>
-        <div id="s1" onclick="selectedChanged(2)">המניין התקיים בהצלחה</div>
-        <div id="s2" onclick="selectedChanged(1)">תפילה נפוצה</div>
-        <div id="s3" onclick="selectedChanged(0)">זמן יצירת מניין</div>
+        <div id="s0" (click)="selectedChanged(0)">המניין התקיים בהצלחה</div>
+        <div id="s1" (click)="selectedChanged(1)">תפילה נפוצה</div>
+        <div id="s2" (click)="selectedChanged(2)">זמן יצירת מניין</div>
     </div>
     <div id="diagrama" >
         <p class="title">בחירת דיאגרמה</p>
@@ -41,10 +41,10 @@
     <div id="showDiagram" [ngSwitch]="selectedDiagramaYour">
       <p>הצגת סטטיסטיקה</p>
         <app-line-chart *ngSwitchCase="1" [lineChartData]="lineChartData"></app-line-chart>
-        <app-bar-chart *ngSwitchCase="2" [barChartData]="barChartData"></app-bar-chart>
-        <app-pie-chart *ngSwitchCase="3" [pieChartData]="pieChartData"></app-pie-chart>
-        <app-doughnut-chart *ngSwitchCase="4" [doughnutChartData]="doughnutChartData"></app-doughnut-chart>
-        <app-line-chart *ngSwitchDefault></app-line-chart>
+        <app-bar-chart *ngSwitchCase="2" [barChartData]="barChartData" [currentStatisticName]="currentStatisticName"></app-bar-chart>
+        <app-pie-chart *ngSwitchCase="3" [pieChartData]="pieChartData" [currentStatisticName]="currentStatisticName"></app-pie-chart>
+        <app-doughnut-chart *ngSwitchCase="4" [doughnutChartData]="doughnutChartData" [currentStatisticName]="currentStatisticName"></app-doughnut-chart>
+        <app-pie-chart *ngSwitchDefault [pieChartData]="pieChartData" [currentStatisticName]="currentStatisticName"></app-pie-chart>
     </div>
 
     <p *ngFor="let p of prayers">{{p|json}}</p>

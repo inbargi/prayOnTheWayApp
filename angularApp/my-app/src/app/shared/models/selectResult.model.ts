@@ -1,11 +1,9 @@
-import { AskToMinyan } from "./askToMinyan.model";
 import { SelectMinyan } from "./selectMinyan.model";
 
-export class Result{
+export class selectResult{
     constructor(
-        public  AsksToMinyanDTO?:AskToMinyan,
         public  IdAskMinyan?:number,
         public  SelectMinyan?:SelectMinyan[],
-        public  Error?:number
+        public  IdSelect?:number
         ){}
-}
+    }

@@ -21,21 +21,23 @@ export class UserHomeComponent implements OnInit {
       {
         console.log(location);
         const driverLocation= new LocationPoint(location.coords.latitude,location.coords.longitude);
+        this.askMinyanService.location=location;
+        this.informationService.askMinyan=(this.askMinyan as AskMinyan)
         this.askMinyanService.driverLocation(driverLocation)
         .subscribe(res=>{
           console.log(res);
           this.resultAlgorithm=res
           this.informationService.resultAlgorithm=res
           console.log("infor: "+ this.informationService.resultAlgorithm)
+          this.route.navigate(['/total-so-far'])
           if(this.resultAlgorithm.Error != 0)
             this.route.navigate(['/time-is-up'])
           if(this.resultAlgorithm.SelectMinyan!=null)
             this.route.navigate(['/minyan-selection'])
-          if(this.resultAlgorithm.AskToMinyanDTO!=null)
+          if(this.resultAlgorithm.AsksToMinyanDTO!=null)
             this.route.navigate(['/live-map'])
+            
         } );
-        this.askMinyanService.location=location;
-        this.informationService.askMinyan=(this.askMinyan as AskMinyan)
       });
     }
   getLocation()

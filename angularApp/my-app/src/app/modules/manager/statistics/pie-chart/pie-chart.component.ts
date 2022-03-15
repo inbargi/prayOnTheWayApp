@@ -11,7 +11,7 @@ import { StatisticsService } from 'src/app/shared/services/statistics.service';
 export class PieChartComponent implements OnInit {
 
   @Input() pieChartData:any[] = []
-  
+  @Input() currentStatisticName: string=""
   constructor(private statisticsService:StatisticsService) {
     
   }
@@ -33,7 +33,7 @@ export class PieChartComponent implements OnInit {
     },
     series: [
         {
-            name: 'תפילה נפוצה',
+            name: this.currentStatisticName,
             type: 'pie',
             radius: '50%',
             data: this.pieChartData,

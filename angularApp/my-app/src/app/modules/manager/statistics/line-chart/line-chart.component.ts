@@ -8,6 +8,7 @@ import { EChartsOption } from 'echarts';
 })
 export class LineChartComponent implements OnInit {
   @Input() lineChartData:any[] = [[],[]]
+  
   chartOption: EChartsOption = {
    
   }

@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { InformationService } from 'src/app/shared/services/information.service';
 import { TotalService } from 'src/app/shared/services/total.service';
+
 
 @Component({
   selector: 'app-total-so-far',
   templateUrl: './total-so-far.component.html',
-  styleUrls: ['./total-so-far.component.css']
+  styleUrls: ['./total-so-far.component.css'],
+  encapsulation: ViewEncapsulation.None
+
 })
 export class TotalSoFarComponent implements OnInit {
 

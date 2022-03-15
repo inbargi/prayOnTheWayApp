@@ -1,0 +1,21 @@
+#title{
+    width:100%;
+    color:lightgray;
+    text-align: center;
+    font-size: x-large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgb(3, 3, 90);
+}
+img{
+    
+}
+p{
+    text-justify: auto ;
+}
+#manager{
+    width:100%;
+    color:white
+}
+#manager:hover{
+    color:black
+}

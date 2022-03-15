@@ -6,6 +6,7 @@ import { LocationPoint } from 'src/app/shared/models/locationPoint.model';
 import { SelectMinyan } from 'src/app/shared/models/selectMinyan.model';
 import { InformationService } from 'src/app/shared/services/information.service';
 import { Router } from '@angular/router';
+import { selectResult } from 'src/app/shared/models/selectResult.model';
 
 @Component({
   selector: 'app-minyan-selection',
@@ -31,12 +32,16 @@ export class MinyanSelectionComponent implements OnInit {
   }
   SavingChoose(idSelect:number) 
   {
-      this.selectService.updateSelectMinyan(this.selects,this.informationService.resultAlgorithm.IdAskMinyan!,idSelect)
+      console.log(idSelect);
+      this.selectService.updateSelectMinyan(new selectResult(this.informationService.resultAlgorithm.IdAskMinyan!,this.selects,idSelect))
       .subscribe(res =>
         {
+          console.log(res)
           this.informationService.resultAlgorithm=res
-          if(res.AskToMinyanDTO != null)
+          
+          if(res.AsksToMinyanDTO != null)
           {
+            console.log("begging navigation")
             this.route.navigate(['live-map'])
           }
         }

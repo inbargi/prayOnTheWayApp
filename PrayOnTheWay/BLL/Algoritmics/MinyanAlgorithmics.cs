@@ -12,19 +12,21 @@ namespace BLL.Algoritmics
     public class MinyanAlgorithmics
     {
         MinyanBLL minyanBll = new MinyanBLL();
+        AskMinyanBLL askMinyanBLL = new AskMinyanBLL();
         AsksToMinyanBLL asksToMinyanBLL = new AsksToMinyanBLL();
         SafePointOnTheWayBLL safePointOnTheWayBLL = new SafePointOnTheWayBLL();
         TimeAlgorithmics timeAlgorithmics = new TimeAlgorithmics();
         LocationAlgorithmics locationAlgorithmics = new LocationAlgorithmics();
 
-        public List<MinyanDTO> SearchMatchMinyan(LocationPoint driverLocation)
+        public List<MinyanDTO> SearchMatchMinyan(LocationPoint driverLocation ,long idCurrentPrayer)
         {
             List<MinyanDTO> matchMinyan = new List<MinyanDTO>();
-            List<MinyanDTO> minyans = minyanBll.GetMinyans();
+            List<MinyanDTO> minyans = minyanBll.GetMinyans().FindAll(m => m.IDPrayer==idCurrentPrayer);
             foreach (var m in minyans)
             {
                 if (IsMinyanActive(m.IDMinyan))
                 {
+                    
                     LocationPoint destination = locationAlgorithmics.GetLocationByIDMinyan(m.IDLocationMinyan);
                     if (timeAlgorithmics.IsOver18Mins(driverLocation,destination)&&locationAlgorithmics.RouteDistanceInKMOnModeDrive(driverLocation, destination) < LocationAlgorithmics.R)
                     {
@@ -169,7 +171,8 @@ namespace BLL.Algoritmics
         }
         public ResultDTO DriverOptions(LocationPoint driverLocation, long idAskMinyan)
         {
-            List<MinyanDTO> driverOptions = SearchMatchMinyan(driverLocation);
+            long idCurrentMinyan = askMinyanBLL.GetAskMinyans().Find(am => am.IdAskMinyan == idAskMinyan).IdPrayer;
+            List<MinyanDTO> driverOptions = SearchMatchMinyan(driverLocation,idCurrentMinyan);
             int c = driverOptions.Count;
             ResultDTO r = new ResultDTO();
 
@@ -233,7 +236,7 @@ namespace BLL.Algoritmics
             AddPrayerToMinyan(selectMinyans[idSelected].IdMinyan);
             AsksToMinyanDTO asksToMinyan = new AsksToMinyanDTO
             {
-                IdMinyan = idSelected,
+                IdMinyan = selectMinyans[idSelected].IdMinyan,
                 IdAskMinyan = idAskMinyan,
                 IsComming = false
             };

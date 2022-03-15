@@ -14,6 +14,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { LiveMapComponent } from './live-map/live-map.component';
 
+
+
 const routes: Routes = [
   {path:'',component:UserHomeComponent},
   {path:'live-map',component:LiveMapComponent},
@@ -32,7 +34,7 @@ const routes: Routes = [
     TimeIsUpComponent,
     WarningComponent,
     MinyanSelectionComponent,
-    LiveMapComponent
+    LiveMapComponent,
   ],
   imports: [
     CommonModule,
@@ -48,7 +50,9 @@ const routes: Routes = [
     MatIconModule,
     MatBadgeModule,
     MatCardModule,
-    MatProgressBarModule],
+    MatProgressBarModule,
+    
+  ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 
 })

@@ -52,6 +52,7 @@
     <Compile Include="SafePointOnTheWayDTO.cs" />
     <Compile Include="ResultDTO.cs" />
     <Compile Include="SelectMinyan.cs" />
+    <Compile Include="SelectResult.cs" />
     <Compile Include="StatisticDTO\StatisticDataDTO.cs" />
     <Compile Include="TimeAtTheDayDTO.cs" />
   </ItemGroup>

@@ -9,6 +9,8 @@ import { EChartsOption } from 'echarts';
 export class BarChartComponent implements OnInit {
 
   @Input() barChartData:any[] = [[],[]]
+  @Input() currentStatisticName: string=""
+
   initOpts = {
     renderer: 'svg',
     width: 300,
@@ -42,7 +44,7 @@ export class BarChartComponent implements OnInit {
       type: 'value'
     }],
     series: [{
-      name: '',
+      name:  this.currentStatisticName,
       type: 'bar',
       barWidth: '60%',
       data: this.barChartData[1]

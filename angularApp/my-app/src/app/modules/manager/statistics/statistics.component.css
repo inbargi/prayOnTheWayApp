@@ -16,25 +16,25 @@ p{
     width:100%
 
 }
-#s1{
+#s0{
     background-color: rgb(124, 39, 124);
 }
 
-#s2{
+#s1{
     background-color: rgb(161, 87, 161);
 }
-#s3{
+#s2{
     background-color: rgb(212, 149, 212);
 }
-#s1:hover{
+#s0:hover{
     color: rgb(124, 39, 124);
     background-color: white;
 }
-#s2:hover{
+#s1:hover{
     color: rgb(161, 87, 161);
     background-color: white;
 }
-#s3:hover{
+#s2:hover{
     color: rgb(212, 149, 212);
     background-color: white;
 }
@@ -44,6 +44,7 @@ p{
     display: inline-block;
     
 }
+
 
 #line-chart{
     background-color: rgb(100, 75, 189);

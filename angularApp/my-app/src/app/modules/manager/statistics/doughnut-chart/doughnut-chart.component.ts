@@ -10,6 +10,7 @@ import { ThemeOption } from 'ngx-echarts';
 })
 export class DoughnutChartComponent implements OnInit {
   @Input() doughnutChartData:any[] = []
+  @Input() currentStatisticName: string=""
 
   theme: string | ThemeOption | undefined;
   coolTheme = CoolTheme;
@@ -23,7 +24,7 @@ export class DoughnutChartComponent implements OnInit {
     },
     series: [
         {
-            name: '',
+            name: this.currentStatisticName,
             type: 'pie',
             radius: ['40%', '70%'],
             avoidLabelOverlap: false,
