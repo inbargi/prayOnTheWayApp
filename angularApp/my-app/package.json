@@ -10,6 +10,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^3.0.0-beta.0",
     "@angular/animations": "~12.1.1",
     "@angular/cdk": "^12.2.13",
     "@angular/common": "~12.1.1",
@@ -24,6 +25,7 @@
     "@juggle/resize-observer": "^3.3.1",
     "@lottiefiles/lottie-interactivity": "^1.2.0",
     "@types/google-maps": "^3.2.3",
+    "agm-direction": "^0.8.10",
     "echarts": "^5.2.2",
     "ngx-echarts": "^7.0.2",
     "rxjs": "~6.6.0",

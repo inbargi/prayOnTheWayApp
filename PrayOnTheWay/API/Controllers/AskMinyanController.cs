@@ -20,13 +20,16 @@ namespace API.Controllers
         [HttpPost]
         public ResultDTO AddAskMinyan(LocationPoint driverPoint)
         {
+            ResultDTO r=new ResultDTO();
             //the location is sent to RecognizePrayer Function.
             long idPrayer = timeAlgorithmics.RecognizePrayer(driverPoint);
+            
             if (idPrayer == -1)
             {
                 //if the recognize has a mistake it's will save an 1 error code 
                 ErrorServiceClass.error = 1;
-                
+                r.Error = 1;
+                return r;
             }
             //saving askMinyan
             AskMinyanDTO askMinyan = new AskMinyanDTO
@@ -36,9 +39,16 @@ namespace API.Controllers
                 AskTime = DateTime.Now.TimeOfDay
             };
             long idAskMinyan = askMinyanBll.AddAskMinyan(askMinyan);
-            ResultDTO r = algorithmicPrayOnTheWay.Algorithmic(driverPoint, idAskMinyan);
+            r = algorithmicPrayOnTheWay.Algorithmic(driverPoint, idAskMinyan);
             r.IdAskMinyan = idAskMinyan;
             return r;
+        }
+        [HttpPost]
+        public AskMinyanDTO GetAskMinyan([FromBody]long idAskMinyan)
+        {
+            if (idAskMinyan <= 0)
+                return null;
+            return askMinyanBll.GetAskMinyan(idAskMinyan);
         }
         [HttpGet]
         public List<AskMinyanDTO> GetAskMinyans()

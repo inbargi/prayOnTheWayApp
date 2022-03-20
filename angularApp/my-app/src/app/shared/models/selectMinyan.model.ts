@@ -6,6 +6,7 @@ export class SelectMinyan
     public  NumOfPeople?:number,
     public  TimeDriver?:number,
     public  PercentSuccess?:number,
+    
     )
     {
         

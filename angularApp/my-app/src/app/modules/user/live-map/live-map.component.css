@@ -1,3 +1,6 @@
+agm-map {
+  height: 500px;
+}
 
 
 #title{
@@ -82,4 +85,11 @@ p{
   #sidebar > div {
     padding: 0.5rem;
   }
+
+  #right{
+    z-index:1;
+    position:absolute;
+    right: 50px;
+    top:250px;
+}
   

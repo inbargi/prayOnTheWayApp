@@ -1,10 +1,29 @@
-<!DOCTYPE html>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-<script src="./live-map.component.ts"></script>
 <div id="title">
   <p>ניווט אל המניין</p>
 </div>
-    <div id="floating-panel">
+ <button mat-mini-fab	color="primary" id="right" (click)="moveTotal()"	>
+   <mat-icon>navigate_next</mat-icon>
+ </button>
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-direction 
+    [origin]="origin" 
+    [destination]="destination"
+  >
+  </agm-direction>
+</agm-map>
+
+
+
+
+
+
+
+<!--
+
+<!DOCTYPE html>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script src="./live-map.component.ts"></script>
+   <div id="floating-panel">
       <b>Start: </b>
       <select id="start">
         <option value="chicago, il">Chicago</option>
@@ -39,8 +58,8 @@
     <div id="map" style="position: relative; overflow: hidden;">
     </div>
 
-
-<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+-->
+<!-- Async script executes immediately and must be after any DOM elements used in callback. 
 <script
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnKYWMN0bWdrCaambzypTgXR4CczM1eFA&callback=initMap&v=weekly"
 async
@@ -58,6 +77,7 @@ async
   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDYA5X1CdeRcs8mOq3qSaLdu7_lraIO2YE
     &q=Space+Needle,Seattle+WA">
 </iframe>
+-->
 <!-- <app-total-so-far id="amount"></app-total-so-far>
  <iframe src="https://embed.waze.com/he/iframe?ll=31.768319%35.21371&navigate=yes&zoom=17
 "
@@ -82,3 +102,4 @@ async
 &key=AIzaSyCh20t1cystYQqfW329T9O9Hos-vIDqZKs"></iframe> -->
 
 
+ 

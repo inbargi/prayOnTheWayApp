@@ -13,5 +13,7 @@ namespace DTO
         public long IdAskMinyan { get; set; }
         public List<SelectMinyan> SelectMinyan { get; set; }
         public int Error { get; set; }
+        public LocationPoint Origin { get; set; }
+        public LocationPoint Destination { get; set; }
     }
 }

@@ -1,6 +1,9 @@
 /* import { google } from 'googlemaps';
  */
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AskMinyanService } from 'src/app/shared/services/askMinyan.service';
+import { InformationService } from 'src/app/shared/services/information.service';
 /* import { } from '@types/googlemaps';
 import {} from 'googlemaps | google.maps';
 import * as googleMaps from '@google/maps'; */
@@ -17,14 +20,43 @@ let map: google.maps.Map;
 })
 export class LiveMapComponent implements OnInit {
 
-  constructor() { 
+  public lat:number = this.askminyan.location.Lat! ;
+  public lng:number = this.askminyan.location.Lng!;
   
-  }
+ 
+  public origin: any;
+  public destination: any;
 
+  constructor(private information:InformationService,private askminyan:AskMinyanService, private route: Router) { 
+    console.log(this.information.askMinyan);
+    this.getDirection();
+    console.log(this.information);
+  }
+  
+  
+  getDirection() {
+    console.log("התחללללתי");
+    
+    this.origin =this.information.askMinyan.LocationPoint?.toString();
+    console.log(this.information.askMinyan.LocationPoint?.toString());
+    
+    // { lat: this.information.askMinyan.LocationPoint?.Lat, lng: this.information.askMinyan.LocationPoint?.Lng};
+    console.log("loca:", this.information.askMinyan.LocationPoint?.toString());
+    
+    this.destination =this.information.resultAlgorithm.Destination?.toString();
+    console.log(this.information.resultAlgorithm.Destination?.toString());
+     
+
+    this.origin = 'Netivot';
+    this.destination = 'Ofakim';
+  }  
   ngOnInit(): void {
     
    /*  declare function require(path: string): any;
     var googleMap = require('@google/maps') */
+  }
+  moveTotal(){
+    this.route.navigate(['/total-so-far']);
   }
  initMap(): void {
       const directionsService = new google.maps.DirectionsService();

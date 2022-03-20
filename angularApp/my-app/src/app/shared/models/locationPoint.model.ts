@@ -1,3 +1,5 @@
+import { Observable } from "rxjs";
+
 export class LocationPoint
 {
     constructor(
@@ -5,7 +7,10 @@ export class LocationPoint
     public  Lng?:number
     )
     {
-        
+      function  toString()
+      {
+return Lat+","+Lng;
+      }  
     }
     
 }

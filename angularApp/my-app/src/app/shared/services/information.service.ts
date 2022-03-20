@@ -6,7 +6,7 @@ import { Result } from '../models/result.model';
   providedIn: 'root'
 })
 export class InformationService {
-   askMinyan !: AskMinyan;
+   askMinyan : AskMinyan = new AskMinyan();
    resultAlgorithm !: Result;
   constructor() { }
 }

@@ -17,3 +17,9 @@
     position: relative;
     top: 90px;
 }
+#left{
+    z-index:1;
+    position:absolute;
+    left: 50px;
+    top:250px;
+}

@@ -5,12 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using DTO;
+using BLL.Algoritmics;
 
 namespace BLL
 {
     public class MinyanBLL
     {
         MinyanDAL minyanDAL = new MinyanDAL();
+       
+
         public long AddMinyan(MinyanDTO minyan)
         {
             return minyanDAL.AddMinyan(Converts.MinyanConvert.ConvertDTOToDAL(minyan));
@@ -18,6 +21,11 @@ namespace BLL
         public List<MinyanDTO> GetMinyans()
         {
             return Converts.MinyanConvert.ConvertDALToDTOList(minyanDAL.GetMinyans());
+        }
+        public void ExitFromMinyan(long idMinyan)
+        {
+            MinyanAlgorithmics minyanAlgorithmics = new MinyanAlgorithmics();
+            minyanAlgorithmics.RemovePrayerFromMinyan(idMinyan);
         }
         public bool UpdateMinyan(MinyanDTO minyan)
         {

@@ -6,6 +6,7 @@
   <div id="numOfPeople">{{totalNumOfPeople}}</div>
 
   <div>
+  
     <svg xmlns="http://www.w3.org/2000/svg" height="128" width="128" viewBox="0 0 128 128">
       <g>
         <path id="path1" transform="rotate(0,64,64) translate(1.6,20.3121975898743) scale(3.9,3.9)  " fill="#96C3E2" d="M16,0C24.799988,-6.6372195E-08 32,4.0999461 32,9.0998736 32,13.899806 25.5,17.799743 17.199951,18.199731L16.799988,18.199731 16.699951,18.299735C13,22.699666 9.2999878,22.399682 9.2999878,22.399682 11.099976,21.399697 11.899963,18.999723 12.299988,17.899747L12,17.899747C5.0999756,16.899762 0,13.299809 0,9.0998736 0,4.0999461 7.1999512,-6.6372195E-08 16,0z" />
@@ -21,5 +22,8 @@
       </g>
     </svg>
   </div>
-  
+  <button mat-mini-fab color="primary" id="left" (click)="moveNavigate()">
+    <mat-icon>navigate_before</mat-icon>
+
+  </button>
 </div>

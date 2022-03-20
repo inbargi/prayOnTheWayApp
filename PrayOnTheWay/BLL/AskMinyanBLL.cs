@@ -22,6 +22,10 @@ namespace BLL
             return askMinyanDAL.AddAskMinyan(Converts.AskMinyanConvert.ConvertDTOToDAL(AskMinyan));
             //calculate options
         }
+        public AskMinyanDTO GetAskMinyan(long idAskMinyan)
+        {
+            return Converts.AskMinyanConvert.ConvertDALToDTO(askMinyanDAL.GetAskMinyans().Find(am => am.IdAskMinyan == idAskMinyan));
+        }
         public List<AskMinyanDTO> GetAskMinyans()
         {
             return Converts.AskMinyanConvert.ConvertDALToDTOList(askMinyanDAL.GetAskMinyans());

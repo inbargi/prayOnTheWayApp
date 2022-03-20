@@ -179,6 +179,12 @@ namespace BLL.Algoritmics
             switch (c)
             {
                 case 0: r.AsksToMinyanDTO= CreateMinyan(driverLocation, idAskMinyan);
+                    //saving destination and origin
+                    AskMinyanDTO a = askMinyanBLL.GetAskMinyans().Find(am => am.IdAskMinyan == idAskMinyan);
+                    MinyanDTO m = minyanBll.GetMinyans().Find(mc => mc.IDMinyan == r.AsksToMinyanDTO.IdMinyan);
+                    SafePointOnTheWayDTO s = safePointOnTheWayBLL.GetSafePointOnTheWays().Find(sp => sp.IdlocationMinyan == m.IDLocationMinyan);
+                    r.Destination = new LocationPoint() { Lat = s.Lat, Lng = s.Lng };
+                    r.Origin = a.LocationPoint;
                     break;
                     
 
@@ -192,6 +198,11 @@ namespace BLL.Algoritmics
                     };
                     asksToMinyanBLL.AddAsksToMinyan(asksToMinyan);
                     r.AsksToMinyanDTO= asksToMinyan;
+                    AskMinyanDTO asm = askMinyanBLL.GetAskMinyans().Find(am => am.IdAskMinyan == idAskMinyan);
+                    MinyanDTO mi = minyanBll.GetMinyans().Find(mc => mc.IDMinyan == driverOptions[0].IDMinyan);
+                    SafePointOnTheWayDTO sa = safePointOnTheWayBLL.GetSafePointOnTheWays().Find(sp => sp.IdlocationMinyan == mi.IDLocationMinyan);
+                    r.Destination = new LocationPoint() { Lat = sa.Lat, Lng = sa.Lng };
+                    r.Origin = asm.LocationPoint;
                     break;
                 default:
                     {
@@ -232,7 +243,7 @@ namespace BLL.Algoritmics
         public ResultDTO SavingChoose(List<SelectMinyan> selectMinyans, long idAskMinyan, int idSelected)
         {
             ResultDTO r = new ResultDTO();
-            
+
             AddPrayerToMinyan(selectMinyans[idSelected].IdMinyan);
             AsksToMinyanDTO asksToMinyan = new AsksToMinyanDTO
             {
@@ -243,6 +254,11 @@ namespace BLL.Algoritmics
             asksToMinyanBLL.AddAsksToMinyan(asksToMinyan);
             r.AsksToMinyanDTO = asksToMinyan;
             r.IdAskMinyan = idAskMinyan;
+            AskMinyanDTO a = askMinyanBLL.GetAskMinyans().Find(am => am.IdAskMinyan == idAskMinyan);
+            MinyanDTO m = minyanBll.GetMinyans().Find(mc => mc.IDMinyan == selectMinyans[idSelected].IdMinyan);
+            SafePointOnTheWayDTO s = safePointOnTheWayBLL.GetSafePointOnTheWays().Find(sp => sp.IdlocationMinyan == m.IDLocationMinyan);
+            r.Destination = new LocationPoint() {Lat= s.Lat, Lng=s.Lng };
+            r.Origin = a.LocationPoint;
             return r;
         }
     }

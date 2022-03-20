@@ -22,22 +22,36 @@ export class UserHomeComponent implements OnInit {
         console.log(location);
         const driverLocation= new LocationPoint(location.coords.latitude,location.coords.longitude);
         this.askMinyanService.location=location;
-        this.informationService.askMinyan=(this.askMinyan as AskMinyan)
+        
         this.askMinyanService.driverLocation(driverLocation)
         .subscribe(res=>{
-          console.log(res);
+          console.log("res"+res);
           this.resultAlgorithm=res
+          this.informationService.askMinyan=(this.askMinyan as AskMinyan)
           this.informationService.resultAlgorithm=res
+          
+          this.askMinyanService.askMinyanByID(res.IdAskMinyan).subscribe(resu=>
+            {this.informationService.askMinyan=resu;
+          console.log(this.informationService.askMinyan);
+
           console.log("infor: "+ this.informationService.resultAlgorithm)
-          this.route.navigate(['/total-so-far'])
           if(this.resultAlgorithm.Error != 0)
+          {
             this.route.navigate(['/time-is-up'])
+            return;
+          }
           if(this.resultAlgorithm.SelectMinyan!=null)
+          {
             this.route.navigate(['/minyan-selection'])
+            return;
+          }
           if(this.resultAlgorithm.AsksToMinyanDTO!=null)
-            this.route.navigate(['/live-map'])
-            
-        } );
+          {
+              this.route.navigate(['/live-map'])
+             return;
+          }
+        });
+        });
       });
     }
   getLocation()

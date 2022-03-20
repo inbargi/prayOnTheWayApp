@@ -13,6 +13,8 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { LiveMapComponent } from './live-map/live-map.component';
+import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';
 
 
 
@@ -43,7 +45,11 @@ const routes: Routes = [
     MatBadgeModule,
     MatCardModule,
     MatProgressBarModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    AgmCoreModule.forRoot({ // @agm/core
+      apiKey: 'AIzaSyB4L4kEM_xkWvVp6jLOtOBIOKYkrFFbJus',
+    }),
+    AgmDirectionModule    // agm-direction
   ],
   exports:[RouterModule,
     MatButtonModule,

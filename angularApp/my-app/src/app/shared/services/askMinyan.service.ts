@@ -19,7 +19,7 @@ export class AskMinyanService {
   driverLocation(location:LocationPoint):Observable<Result>
   {
     console.log("ask:"+location.Lat+","+location.Lng)
-     return this.http.post(environment.api_url+'AskMinyan',location)
+     return this.http.post(environment.api_url+'AskMinyan/AddAskMinyan',location)
   }
 
 /*   }  selectMinyan(selectMinyanList){
@@ -29,4 +29,7 @@ export class AskMinyanService {
     return this.http.put(environment.api_url+'Minyan',succesfullyMinyan)
   }
 
+  askMinyanByID(idAskMinyan:number|undefined):Observable<AskMinyan>{
+     return this.http.post(environment.api_url+'AskMinyan/GetAskMinyan',idAskMinyan)
+  }
 }
