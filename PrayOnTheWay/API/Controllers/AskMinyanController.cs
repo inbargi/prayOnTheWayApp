@@ -20,6 +20,7 @@ namespace API.Controllers
         [HttpPost]
         public ResultDTO AddAskMinyan(LocationPoint driverPoint)
         {
+            ErrorServiceClass.error = 0;
             ResultDTO r=new ResultDTO();
             //the location is sent to RecognizePrayer Function.
             long idPrayer = timeAlgorithmics.RecognizePrayer(driverPoint);

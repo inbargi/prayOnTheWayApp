@@ -9,3 +9,7 @@
 p{
     text-justify: auto ;
 }
+.display{
+    display: inline;
+    
+}

@@ -9,7 +9,7 @@ export class LocationPoint
     {
       function  toString()
       {
-return Lat+","+Lng;
+        return Lat+","+Lng;
       }  
     }
     

@@ -27,16 +27,29 @@ section {
     border-radius: 5px;
     border:1px solid rgba(178, 178, 180, 0.616);
     
-    font-size: x-large;
+    font-size: 72px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     
+  }
+  .min{
+    font-size: 35px;
+    text-align: left;
+    
   } 
+  .km{
+    font-size: 35px;
+    text-align: left;
+    margin-left: 10px;
+  }
+
   .numOfPeople{
      margin:20px;
      margin-top: 40px;
+     font-size: 40px;
   }
+
   div{
-    display: inline-block;
+    display: inline;
   }
   .separate{
     font-size: xx-large;

@@ -1,6 +1,6 @@
 <div id="title">
     <div id="logo">
-        <img src="assets/images/logo.jpg" height="50px" width="50px" />
+        <img src="assets/images/logoG.jpg" height="50px" width="50px" />
     </div>
     <div>
         <p>מניינים נוספים באזור</p>
@@ -41,7 +41,7 @@
 </div>
 </button> -->
 
-<mat-card *ngFor="let selectMinyan of selects; let i=index" class="select">
+<mat-card *ngFor="let selectMinyan of selects; let i=index" class="select" >
     <mat-card-title>
         <div>
             <span class="min"> {{selectMinyan.TimeDriver}} דקות</span>
@@ -52,7 +52,7 @@
             <span class="numOfKM"> {{selectMinyan.NumKM}} ק"מ</span>
         </div>
         <div class="numOfPeople">
-            <mat-icon matBadge={{selectMinyan.NumOfPeople}} >groups</mat-icon>
+            <mat-icon class="numOfPeople" matBadge={{selectMinyan.NumOfPeople}} >groups</mat-icon>
         </div>
     </mat-card-subtitle>
     <mat-card-content>
@@ -65,5 +65,6 @@
         <button mat-button (click)="SavingChoose(i)">
             <span class="material-icons" >navigate_next</span>
         </button>
+       
     </mat-card-actions>
 </mat-card>

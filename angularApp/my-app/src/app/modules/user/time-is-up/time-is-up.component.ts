@@ -10,9 +10,17 @@ export class TimeIsUpComponent implements OnInit {
 
   constructor(private informationService:InformationService) { }
   error !: number
+  isDisplay : boolean = false
   ngOnInit(): void {
-    console.log("error: (time-is-up): "+this.informationService.resultAlgorithm.Error)
-    this.error = this.informationService.resultAlgorithm.Error!
+    if(this.informationService.resultAlgorithm != undefined)
+    {
+      console.log("error: (time-is-up): "+this.informationService.resultAlgorithm.Error)
+      this.error = this.informationService.resultAlgorithm.Error!
+    }
+    else 
+    {
+      this.isDisplay=true;
+    }
   }
 
 }

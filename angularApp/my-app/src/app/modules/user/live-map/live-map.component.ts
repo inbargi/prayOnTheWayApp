@@ -47,8 +47,8 @@ export class LiveMapComponent implements OnInit {
     console.log(this.information.resultAlgorithm.Destination?.toString());
      
 
-    this.origin = 'Netivot';
-    this.destination = 'Ofakim';
+    this.origin = 'Ofakim Park, אופקים';
+    this.destination = 'תחנת דלק - סונול אופקים';
   }  
   ngOnInit(): void {
     

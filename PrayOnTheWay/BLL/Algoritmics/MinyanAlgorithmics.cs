@@ -46,7 +46,7 @@ namespace BLL.Algoritmics
             {
                 if (min.IDMinyan == idMinyan)
                 {
-                    min.NumOfPeopleInMinyan++;
+                    ++min.NumOfPeopleInMinyan;
                     minyanBll.UpdateMinyan(min);
                     break;
                 }

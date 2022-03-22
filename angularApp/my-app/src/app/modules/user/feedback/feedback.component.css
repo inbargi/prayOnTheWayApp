@@ -7,11 +7,15 @@ div{
     margin: 5px;
     
 }
-label{
+#successfully, #arrived{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size:x-large;
     padding: 5px;
+    padding: 12px;
 }
 #add, .addDIV{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:x-large;
+  padding: 5px;
     padding: 25px;
 }

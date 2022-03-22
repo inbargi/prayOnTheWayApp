@@ -15,6 +15,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { LiveMapComponent } from './live-map/live-map.component';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 
 
@@ -44,6 +46,7 @@ const routes: Routes = [
     MatIconModule,
     MatBadgeModule,
     MatCardModule,
+    MatCheckboxModule,
     MatProgressBarModule,
     RouterModule.forChild(routes),
     AgmCoreModule.forRoot({ // @agm/core

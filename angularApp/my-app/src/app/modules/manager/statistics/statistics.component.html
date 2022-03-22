@@ -37,10 +37,10 @@
                 </g>
               </svg>
         </button>
-    </div>
-    <div id="showDiagram" [ngSwitch]="selectedDiagramaYour">
+      </div>
+    <div id="showDiagram" [ngSwitch]="selectedDiagramaYour" *ngIf="lineChartData && barChartData && pieChartData && doughnutChartData">
       <p>הצגת סטטיסטיקה</p>
-        <app-line-chart *ngSwitchCase="1" [lineChartData]="lineChartData"></app-line-chart>
+        <app-line-chart *ngSwitchCase="1" [lineChartData]="lineChartData" ></app-line-chart>
         <app-bar-chart *ngSwitchCase="2" [barChartData]="barChartData" [currentStatisticName]="currentStatisticName"></app-bar-chart>
         <app-pie-chart *ngSwitchCase="3" [pieChartData]="pieChartData" [currentStatisticName]="currentStatisticName"></app-pie-chart>
         <app-doughnut-chart *ngSwitchCase="4" [doughnutChartData]="doughnutChartData" [currentStatisticName]="currentStatisticName"></app-doughnut-chart>

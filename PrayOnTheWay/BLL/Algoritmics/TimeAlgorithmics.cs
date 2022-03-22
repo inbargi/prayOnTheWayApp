@@ -163,7 +163,7 @@ namespace BLL
             if (navigationTime == 0 || prayTimeLength == -1 || getEndTimePray.Equals(new TimeSpan()))
                 return false;
             
-            if (currentTime + navigationTime + prayTimeLength > getEndTimePray)
+            if ( navigationTime + prayTimeLength > currentTime -  getEndTimePray)
             {
                 //todo error2
                 BLL.Algoritmics.ErrorServiceClass.error = 2;

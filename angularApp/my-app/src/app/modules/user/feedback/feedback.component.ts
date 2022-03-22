@@ -6,12 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feedback.component.css']
 })
 export class FeedbackComponent implements OnInit {
+  arrived!:boolean;
+  succesfully!:boolean;
+  message!:string;
 
-  constructor() { }
+  constructor() {
+    
+
+   }
 
   ngOnInit(): void {
     
   }
+
+  setAll(completed: boolean) {
+    this.arrived = completed;
+    }
+  
+
   submit()
   {
     

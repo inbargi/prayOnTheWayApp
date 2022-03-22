@@ -12,10 +12,11 @@ export class StatisticsComponent implements OnInit {
   statistics = ["המניין התקיים בהצלחה", "תפילה נפוצה", "זמן יצירת מניין"]
   diagrams = ["line-chart", "bar-chart", "pie-chart", "doughnut-chart"]
   statistics_chart = [[this.diagrams[0]], [this.diagrams[1], this.diagrams[2], this.diagrams[3]], [this.diagrams[2], this.diagrams[3]]]
-  lineChartData: any[] = [[], []];
-  barChartData: any[] = [[], []];
-  pieChartData: any[] = [];
-  doughnutChartData: any[] = [];
+  lineChartData?: any[] = [[], []];
+  barChartData?: any[] = [[], []];
+  pieChartData?: any[] = [];
+  doughnutChartData?: any[] = [];
+  
 
   selectedStatistics = 0;
   currentStatisticName = "";
@@ -35,14 +36,15 @@ export class StatisticsComponent implements OnInit {
   constructor(private prayerSevice: PrayerService, private statisticsService: StatisticsService) { }
 
   ngOnInit(): void {
-    
-
     /*this.prayerSevice.getPrayers().subscribe((res:Prayer[])=>this.prayers=res)*/
   }
   showdiagram(){
     if (this.selectedStatistics == 0) 
     {
-      this.statisticsService.timeCreateMinyan().subscribe(res => {
+      this.statisticsService.successfullyMinyan().subscribe(res => {
+        
+        console.log(res);
+        
         this.pieChartData = res;
         this.doughnutChartData = res;
         for (let data of res) {
@@ -53,6 +55,10 @@ export class StatisticsComponent implements OnInit {
           this.barChartData[0].push(data.name)
           this.barChartData[1].push(data.value)
         }
+        console.log("bar"+this.barChartData);
+        console.log("pie"+this.pieChartData);
+        console.log("line"+this.lineChartData);
+        console.log("dought"+this.doughnutChartData);
       })
     }
     if (this.selectedStatistics == 1) 
@@ -72,7 +78,7 @@ export class StatisticsComponent implements OnInit {
     }
     if (this.selectedStatistics == 2) 
     {
-      this.statisticsService.successfullyMinyan().subscribe(res => {
+      this.statisticsService.timeCreateMinyan().subscribe(res => {
         this.pieChartData = res;
         this.doughnutChartData = res;
         for (let data of res) {

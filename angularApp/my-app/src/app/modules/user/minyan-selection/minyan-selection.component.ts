@@ -20,12 +20,19 @@ export class MinyanSelectionComponent implements OnInit {
   selects!:SelectMinyan[] /* = [{NumKM:12,NumOfPeople:9,TimeDriver:14,PercentSuccess:95},{NumKM:12,NumOfPeople:6,TimeDriver:10,PercentSuccess:65},{NumKM:50,NumOfPeople:5,TimeDriver:7,PercentSuccess:50},{NumKM:22,NumOfPeople:6,TimeDriver:4,PercentSuccess:80}];
    */
   ngOnInit(): void {
-    this.selects = this.informationService.resultAlgorithm.SelectMinyan!;
+    if(this.informationService.resultAlgorithm!=undefined)
+    {
+      this.selects = this.informationService.resultAlgorithm.SelectMinyan!;
+    }
+    else
+    {
+      this.selects = [{NumKM:12,NumOfPeople:9,TimeDriver:14,PercentSuccess:95},{NumKM:12,NumOfPeople:6,TimeDriver:10,PercentSuccess:65},{NumKM:50,NumOfPeople:5,TimeDriver:7,PercentSuccess:50},{NumKM:22,NumOfPeople:6,TimeDriver:4,PercentSuccess:80}];
+    }
    /*  this.selectMinyanService.updateSelectMinyan(this.askMinyanService.location).subscribe(res => {
       this.selects = res;
    }); */
   }
-  hidden = false;
+  hidden = false
 
   toggleBadgeVisibility() {
     this.hidden = !this.hidden;
