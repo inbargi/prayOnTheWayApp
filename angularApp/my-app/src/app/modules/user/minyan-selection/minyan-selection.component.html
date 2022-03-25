@@ -1,9 +1,9 @@
 <div id="title">
-    <div id="logo">
+    <!-- <div id="logo">
         <img src="assets/images/logoG.jpg" height="50px" width="50px" />
-    </div>
+    </div> -->
     <div>
-        <p>מניינים נוספים באזור</p>
+        <p>ישנן כמה אופציות אנא בחר את המניין המועדף עליך</p>
     </div>
     
     
@@ -44,20 +44,23 @@
 <mat-card *ngFor="let selectMinyan of selects; let i=index" class="select" >
     <mat-card-title>
         <div>
-            <span class="min"> {{selectMinyan.TimeDriver}} דקות</span>
+            <span class="nameLocation"> {{selectMinyan.LocationName}} </span>
         </div>
+      
+        
     </mat-card-title>
     <mat-card-subtitle>
-        <div class="km">
-            <span class="numOfKM"> {{selectMinyan.NumKM}} ק"מ</span>
+        <!-- <div>
+            <span class="min"> {{selectMinyan.TimeDriver}} דקות</span>
         </div>
+        -->
         <div class="numOfPeople">
             <mat-icon class="numOfPeople" matBadge={{selectMinyan.NumOfPeople}} >groups</mat-icon>
         </div>
     </mat-card-subtitle>
     <mat-card-content>
         <div class="PercentSuccess">
-            <p> אחוזי הצלחה בעבר:</p>
+            <p class="PercentSuccess"> אחוזי הצלחה בעבר:</p>
             <mat-progress-bar mode="determinate" value={{selectMinyan.PercentSuccess}}></mat-progress-bar>
         </div>
     </mat-card-content>
@@ -65,6 +68,11 @@
         <button mat-button (click)="SavingChoose(i)">
             <span class="material-icons" >navigate_next</span>
         </button>
-       
+        <div class="kmandmin">
+            <span class="numOfKM"> {{selectMinyan.NumKM}} ק"מ  / {{selectMinyan.TimeDriver}} דקות</span>
+        </div>
+       <!--  <div>
+            <span class="min"> {{selectMinyan.TimeDriver}} דקות</span>
+        </div> -->
     </mat-card-actions>
 </mat-card>

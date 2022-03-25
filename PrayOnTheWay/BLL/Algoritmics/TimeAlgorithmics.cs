@@ -162,15 +162,34 @@ namespace BLL
             int getEndTimePray = (int)GetEndTimePray(driverLocation).TotalSeconds;
             if (navigationTime == 0 || prayTimeLength == -1 || getEndTimePray.Equals(new TimeSpan()))
                 return false;
-            
-            if ( navigationTime + prayTimeLength > currentTime -  getEndTimePray)
+
+            if (  navigationTime + prayTimeLength >currentTime- getEndTimePray)
             {
                 //todo error2
-                BLL.Algoritmics.ErrorServiceClass.error = 2;
+                BLL.Algoritmics.ErrorServiceClass.error = 0;
                 return false;
             }
 
             return true;
+
+            //TimeSpan currentTime = DateTime.Now.TimeOfDay;
+            //int navigationTime = TimeDriveToMinyan(driverLocation, destination);
+            //int prayTimeLength = GetPrayLength((int)RecognizePrayer(driverLocation)) * 60;
+            //TimeSpan getEndTimePray = GetEndTimePray(driverLocation);
+            //if (navigationTime == 0 || prayTimeLength == -1 || getEndTimePray.Equals(new TimeSpan()))
+            //    return false;
+            //double a = getEndTimePray.Subtract(currentTime).TotalSeconds;
+            //if (getEndTimePray.Subtract(currentTime).TotalSeconds <= navigationTime + prayTimeLength)
+            //{
+            //    //todo error2
+            //    BLL.Algoritmics.ErrorServiceClass.error = 2;
+            //    return false;
+            //}
+
+            //return true;
+
+
+
         }
 
     }

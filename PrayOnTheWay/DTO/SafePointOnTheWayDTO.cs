@@ -11,7 +11,7 @@ namespace DTO
         public long IdlocationMinyan { get; set; }
         public string Lat { get; set; }
         public string Lng { get; set; }
-       
+        public string NameLocation { get; set; }
 
         public List<MinyanDTO> Minyans { get; set; }
     }

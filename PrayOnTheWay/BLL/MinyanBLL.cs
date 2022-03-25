@@ -29,8 +29,16 @@ namespace BLL
         }
         public bool UpdateMinyan(MinyanDTO minyan)
         {
+
             return minyanDAL.UpdateMinyan(Converts.MinyanConvert.ConvertDTOToDAL(minyan));
         }
+        public bool UpdateSuccessfullyMinyan(long idMinyan)
+        {
+
+            Minyan minyan = minyanDAL.GetMinyans().Find(m => m.IdMinyan == idMinyan);
+            return minyanDAL.UpdateMinyan(minyan);
+        }
+
         public bool RemoveMinyan(MinyanDTO minyan)
         {
             return minyanDAL.RemoveMinyan(Converts.MinyanConvert.ConvertDTOToDAL(minyan));

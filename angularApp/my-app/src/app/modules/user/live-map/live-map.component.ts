@@ -34,29 +34,48 @@ export class LiveMapComponent implements OnInit {
   }
   
   
-  getDirection() {
+  getDirection() 
+  {
     console.log("התחללללתי");
-    
-    this.origin =this.information.askMinyan.LocationPoint?.toString();
-    console.log(this.information.askMinyan.LocationPoint?.toString());
-    
+    this.origin={lat:31.883602,lng:34.725917};
+    this.origin={lat:31.884970,lng:34.726431};
+    this.origin={lat:31.799796,lng:34.688826};
+   /*  this.origin =this.information.askMinyan.LocationPoint?.toString();
+    console.log(this.information.askMinyan.LocationPoint?.toString());*/
     // { lat: this.information.askMinyan.LocationPoint?.Lat, lng: this.information.askMinyan.LocationPoint?.Lng};
-    console.log("loca:", this.information.askMinyan.LocationPoint?.toString());
-    
-    this.destination =this.information.resultAlgorithm.Destination?.toString();
-    console.log(this.information.resultAlgorithm.Destination?.toString());
-     
+    //console.log("loca:", this.information.askMinyan.LocationPoint?.toString());
+    //this.destination={lat:31.889116,lng:34.731612}
+    //var location={lat:31.889886,lng:34.731499}; 
+    var result1 = this.information.resultAlgorithm.Origin;
+    var lat1 = parseFloat("" + result1?.Lat);
+    var lng1 = parseFloat("" + result1?.Lng);
+    var location1 = {lat:lat1, lng:lng1}
+    this.origin=location1;
+    var result = this.information.resultAlgorithm.Destination;
+    var lat = parseFloat("" + result?.Lat);
+    var lng = parseFloat("" + result?.Lng);
+    var location = {lat:lat, lng:lng}
+    console.log(typeof result?.Lat)
 
-    this.origin = 'Ofakim Park, אופקים';
-    this.destination = 'תחנת דלק - סונול אופקים';
+    //console.log("bAD" + JSON.stringify(); 
+    console.log("good:" + JSON.stringify(result))
+    
+/*
+ */    console.log("works:" + JSON.stringify(location))
+
+    this.destination = location;
+   
+    
   }  
   ngOnInit(): void {
-    
    /*  declare function require(path: string): any;
     var googleMap = require('@google/maps') */
   }
   moveTotal(){
     this.route.navigate(['/total-so-far']);
+  }
+  moveFeedback(){
+    this.route.navigate(['/feedback']);
   }
  initMap(): void {
       const directionsService = new google.maps.DirectionsService();

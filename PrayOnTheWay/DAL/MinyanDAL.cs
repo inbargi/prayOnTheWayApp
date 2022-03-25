@@ -10,7 +10,6 @@ namespace DAL
 {
     public class MinyanDAL
     {
-
         public long AddMinyan(Minyan minyan)
         {
             using (PrayOnTheWayEntities DB=new PrayOnTheWayEntities())
@@ -40,7 +39,11 @@ namespace DAL
         {
             using(PrayOnTheWayEntities DB = new PrayOnTheWayEntities())
             {
-                DB.Entry(minyan);
+                Minyan minyan1 = DB.Minyans.FirstOrDefault(u => u.IdMinyan == minyan.IdMinyan);
+                minyan1.NumOfPeopleInMinyan = minyan.NumOfPeopleInMinyan;
+                minyan1.SuccessfullyMinyan = minyan.SuccessfullyMinyan;
+
+                //DB.Entry(minyan);
                 try
                 {
                     DB.SaveChanges();

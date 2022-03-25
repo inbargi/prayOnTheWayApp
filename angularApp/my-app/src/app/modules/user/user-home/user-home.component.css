@@ -9,16 +9,17 @@
 #logo{
     text-align: center;
 }
-img{
-    
+.car{
+    display: inline-block;
+    margin: 30px;
+    margin-right: 150px;
 }
 p{
     text-justify: auto ;
 }
 #manager{
     width:100%;
-    color:white
-    
+    color:white;
 }
 #manager:hover{
     color:black

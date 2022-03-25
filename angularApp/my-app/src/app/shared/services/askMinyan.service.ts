@@ -24,10 +24,7 @@ export class AskMinyanService {
 
 /*   }  selectMinyan(selectMinyanList){
  */
-  feedback(succesfullyMinyan:Boolean)
-  {
-    return this.http.put(environment.api_url+'Minyan',succesfullyMinyan)
-  }
+  
 
   askMinyanByID(idAskMinyan:number|undefined):Observable<AskMinyan>{
      return this.http.post(environment.api_url+'AskMinyan/GetAskMinyan',idAskMinyan)

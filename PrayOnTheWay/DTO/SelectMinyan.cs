@@ -12,6 +12,7 @@ namespace DTO
         public int NumKM { get; set; }
         public int NumOfPeople { get; set; }
         public int TimeDriver { get; set; }
+        public string LocationName { get; set; }
         public int PercentSuccess { get; set; }
     }
 }

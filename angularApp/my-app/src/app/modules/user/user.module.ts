@@ -3,9 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { MenuManagerComponent } from '../user/menu-manager/menu-manager.component';
 import { TimeIsUpComponent } from './time-is-up/time-is-up.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
 import { TotalSoFarComponent } from './total-so-far/total-so-far.component';
-import { WarningComponent } from './warning/warning.component';
 import { MinyanSelectionComponent } from './minyan-selection/minyan-selection.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
@@ -16,6 +19,7 @@ import { LiveMapComponent } from './live-map/live-map.component';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -27,6 +31,7 @@ const routes: Routes = [
   {path:'total-so-far',component:TotalSoFarComponent},
   {path:'feedback',component:FeedbackComponent},
   {path:'minyan-selection',component:MinyanSelectionComponent},
+
 ];
 
 
@@ -36,9 +41,9 @@ const routes: Routes = [
     FeedbackComponent,
     TotalSoFarComponent,
     TimeIsUpComponent,
-    WarningComponent,
     MinyanSelectionComponent,
     LiveMapComponent,
+    MenuManagerComponent,
   ],
   imports: [
     CommonModule,
@@ -47,7 +52,11 @@ const routes: Routes = [
     MatBadgeModule,
     MatCardModule,
     MatCheckboxModule,
+    MatDividerModule,
     MatProgressBarModule,
+    MatListModule,
+    MatTableModule,
+    MatDialogModule,
     RouterModule.forChild(routes),
     AgmCoreModule.forRoot({ // @agm/core
       apiKey: 'AIzaSyB4L4kEM_xkWvVp6jLOtOBIOKYkrFFbJus',

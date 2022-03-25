@@ -45,6 +45,23 @@ namespace BLL
             return point;
         }
 
+        public SafePointOnTheWayDTO GetLocationByIDLocationMinyan(long idLocationMinyan)
+        {
+            SafePointOnTheWayDTO  point = new SafePointOnTheWayDTO();
+            List<SafePointOnTheWayDTO> safesPointOnTheWay = safePointOnTheWayBLL.GetSafePointOnTheWays();
+            foreach (var safe in safesPointOnTheWay)
+            {
+                if (safe.IdlocationMinyan == idLocationMinyan)
+                {
+                    point.Lat = safe.Lat;
+                    point.Lng = safe.Lng;
+                    point.NameLocation = safe.NameLocation;
+                    break;
+                }
+            }
+            return point;
+        }
+
         public int RouteDistanceInSecondOnModeDrive(LocationPoint current, LocationPoint destination)
         {
             string ApiKey = ConfigurationManager.AppSettings["APIKEY"];

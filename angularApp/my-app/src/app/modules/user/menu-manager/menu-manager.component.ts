@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ManagerService } from 'src/app/shared/services/manager.service';
+import { FeedbeckService } from 'src/app/shared/services/feedbeck.service';
 
 @Component({
   selector: 'app-menu-manager',
@@ -9,17 +9,16 @@ import { ManagerService } from 'src/app/shared/services/manager.service';
 })
 export class MenuManagerComponent implements OnInit {
 
-  constructor(private managerService: ManagerService,
-     private router: Router ) { }
+  constructor(private feedbackservice:FeedbeckService) { }
+  public feedbacks?: string[] = [];
 
   ngOnInit(): void {
+      this.feedbackservice.getAllMessage().subscribe(res => {
+        this.feedbacks=res;
+      });
   }
   
-  statisticShow()
-  {
-    this.router.navigate(["manager/statistics"])
   
-  }
 }
 
 

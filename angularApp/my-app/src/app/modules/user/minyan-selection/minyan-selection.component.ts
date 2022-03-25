@@ -26,7 +26,7 @@ export class MinyanSelectionComponent implements OnInit {
     }
     else
     {
-      this.selects = [{NumKM:12,NumOfPeople:9,TimeDriver:14,PercentSuccess:95},{NumKM:12,NumOfPeople:6,TimeDriver:10,PercentSuccess:65},{NumKM:50,NumOfPeople:5,TimeDriver:7,PercentSuccess:50},{NumKM:22,NumOfPeople:6,TimeDriver:4,PercentSuccess:80}];
+      this.selects = [{NumKM:12,NumOfPeople:9,TimeDriver:14,LocationName:"Paz Gaz, gilat street 24",PercentSuccess:95},{NumKM:12,NumOfPeople:6,TimeDriver:10,LocationName:"פז אורלי גהה",PercentSuccess:65},{NumKM:50,NumOfPeople:5,TimeDriver:7,LocationName:"דור אלון - ארגמן",PercentSuccess:50},{NumKM:22,NumOfPeople:2,TimeDriver:4,LocationName:"דור אלון רחוב הסיבים",PercentSuccess:80}];
     }
    /*  this.selectMinyanService.updateSelectMinyan(this.askMinyanService.location).subscribe(res => {
       this.selects = res;

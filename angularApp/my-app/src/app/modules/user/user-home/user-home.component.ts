@@ -25,7 +25,7 @@ export class UserHomeComponent implements OnInit {
         
         this.askMinyanService.driverLocation(driverLocation)
         .subscribe(res=>{
-          console.log("res"+res);
+          console.log("res:"+ JSON.stringify(res));
           this.resultAlgorithm=res
           this.informationService.askMinyan=(this.askMinyan as AskMinyan)
           this.informationService.resultAlgorithm=res

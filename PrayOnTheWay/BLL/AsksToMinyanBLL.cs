@@ -11,7 +11,7 @@ namespace BLL
     public class AsksToMinyanBLL
     {
         AsksToMinyanDAL asksToMinyanDAL = new AsksToMinyanDAL();
-        public bool AddAsksToMinyan(AsksToMinyanDTO AsksToMinyan)
+        public long AddAsksToMinyan(AsksToMinyanDTO AsksToMinyan)
         {
             return asksToMinyanDAL.AddAsksToMinyan(Converts.AsksToMinyanConvert.ConvertDTOToDAL(AsksToMinyan));
         }
@@ -28,6 +28,19 @@ namespace BLL
             return asksToMinyanDAL.RemoveAsksToMinyan(Converts.AsksToMinyanConvert.ConvertDTOToDAL(asksToMinyan));
         }
 
+        public List<string> GetAllMessage()
+        {
+            List<AsksToMinyanDTO> askTos = GetAsksToMinyans(); 
+            List<string> message=new List<string>();
+            foreach (AsksToMinyanDTO ask in askTos)
+            {
+                if(ask.Message != null || ask.Message != "")
+                {
+                    message.Add(ask.Message);
+                }
+            }
+            return message;
+        }
         public long GetIdMinyanByIdAskMinyan(long idAskMinyan)
         {
             List<AsksToMinyanDTO> asksToMinyans = GetAsksToMinyans();

@@ -28,6 +28,11 @@ namespace API.Controllers
             return minyanBll.GetMinyans();
         }
         [HttpPut]
+        public bool UpdateMinyan(long idMinyan)
+        {
+            return minyanBll.UpdateSuccessfullyMinyan(idMinyan);
+        }
+        [HttpPut]
         public void ExitFromMinyan(long idMinyan)
         {
             minyanBll.ExitFromMinyan(idMinyan);

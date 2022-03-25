@@ -11,7 +11,7 @@ export class MinyanService {
 
   ExitFromMinyan(idMinyan:number)
   {
-    return this.http.put(environment.api_url+'Minyan',idMinyan); 
+    return this.http.put(environment.api_url+'Minyan/ExitFromMinyan',idMinyan); 
   }
 
 }

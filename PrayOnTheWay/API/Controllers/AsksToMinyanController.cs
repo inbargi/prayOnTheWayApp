@@ -15,7 +15,7 @@ namespace API.Controllers
     {
        AsksToMinyanBLL asksToMinyanBll = new AsksToMinyanBLL();
         [HttpPost]
-        public bool AddAsksToMinyan(AsksToMinyanDTO asksToMinyan)
+        public long AddAsksToMinyan(AsksToMinyanDTO asksToMinyan)
         {
             return asksToMinyanBll.AddAsksToMinyan(asksToMinyan);
         }
@@ -23,6 +23,16 @@ namespace API.Controllers
         public List<AsksToMinyanDTO> GetAsksToMinyans()
         {
             return asksToMinyanBll.GetAsksToMinyans();
+        }
+        [HttpPut]
+        public bool UpdateAsksToMinyan(AsksToMinyanDTO asksToMinyan)
+        {
+            return asksToMinyanBll.UpdateAsksToMinyan(asksToMinyan);
+        }
+        [HttpGet]
+        public List<string> GetAllMessage()
+        {
+            return asksToMinyanBll.GetAllMessage();
         }
     }
 }

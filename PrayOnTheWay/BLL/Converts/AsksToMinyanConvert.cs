@@ -18,6 +18,7 @@ namespace BLL.Converts
                 IdMinyan = asksToMinyan.IdMinyan,
                 IdAsksToMinyan = asksToMinyan.IdAsksToMinyan,
                 IsComming = asksToMinyan.IsComming,
+                Message = asksToMinyan.Message,
                 //Minyan = MinyanConvert.ConvertDALToDTO(asksToMinyan.Minyan),
                // AskMinyan =AskMinyanConvert.ConvertDALToDTO(asksToMinyan.AskMinyan)
             };
@@ -30,8 +31,9 @@ namespace BLL.Converts
                 IdAsksToMinyan = asksToMinyanDTO.IdAsksToMinyan,
                 IdMinyan = asksToMinyanDTO.IdMinyan,
                 IsComming = asksToMinyanDTO.IsComming,
-               // AskMinyan =AskMinyanConvert.ConvertDTOToDAL(asksToMinyanDTO.AskMinyan),
-               // Minyan =MinyanConvert.ConvertDTOToDAL(asksToMinyanDTO.Minyan)
+                Message = asksToMinyanDTO.Message,
+                // AskMinyan =AskMinyanConvert.ConvertDTOToDAL(asksToMinyanDTO.AskMinyan),
+                // Minyan =MinyanConvert.ConvertDTOToDAL(asksToMinyanDTO.Minyan)
             };
         }
 

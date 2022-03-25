@@ -61,7 +61,7 @@ namespace BLL.Algoritmics
                 if (min.IDMinyan == idMinyan)
                 {
 
-                    min.NumOfPeopleInMinyan--;
+                    --min.NumOfPeopleInMinyan;
                     minyanBll.UpdateMinyan(min);
                     break;
                 }
@@ -113,14 +113,15 @@ namespace BLL.Algoritmics
                     }
                 //if there is at least one
                 default:
-                    { 
-                    //saving the safe point
-                    long idLocationSafePoint = safePointOnTheWayBLL.AddSafePointOnTheWay(
-                        new SafePointOnTheWayDTO
-                        {
-                            Lat = optionals[0].Point.Lat,
-                            Lng = optionals[0].Point.Lng
-                        });
+                    {
+                        //saving the safe point
+                        long idLocationSafePoint = safePointOnTheWayBLL.AddSafePointOnTheWay(
+                            new SafePointOnTheWayDTO
+                            {
+                                Lat = optionals[0].Point.Lat,
+                                Lng = optionals[0].Point.Lng,
+                                NameLocation = optionals[0].LocationName.Substring(0, (optionals[0].LocationName.LastIndexOf(",")))
+                            }) ; 
                     //create a new minyan according to data
                     long idMinyan = minyanBll.AddMinyan(
                     new MinyanDTO
@@ -132,14 +133,16 @@ namespace BLL.Algoritmics
                         NumOfPeopleInMinyan = 1,
                         SuccessfullyMinyan = false
                     });
-                    //Saving request to this minyan and assign iscomming to the value false
-                    AsksToMinyanDTO asksToMinyan = new AsksToMinyanDTO
+                        //Saving request to this minyan and assign iscomming to the value false
+                     AsksToMinyanDTO asksToMinyan = new AsksToMinyanDTO
                     {
-                        IdMinyan = idMinyan,
-                        IdAskMinyan = idAskMinyan,
-                        IsComming = false
+                         IdMinyan = idMinyan,
+                         IdAskMinyan = idAskMinyan,
+                         IsComming = false,
+                         Message = ""
                     };
-                    asksToMinyanBLL.AddAsksToMinyan(asksToMinyan);
+                    long idAskToMinyan=asksToMinyanBLL.AddAsksToMinyan(asksToMinyan);
+                        asksToMinyan.IdAsksToMinyan = idAskToMinyan;
                     return asksToMinyan;
                     }
             }
@@ -194,9 +197,11 @@ namespace BLL.Algoritmics
                     {
                         IdMinyan = driverOptions[0].IDMinyan,
                         IdAskMinyan = idAskMinyan,
-                        IsComming = false
+                        IsComming = false,
+                        Message = ""
                     };
-                    asksToMinyanBLL.AddAsksToMinyan(asksToMinyan);
+                    long idAskToMinyan = asksToMinyanBLL.AddAsksToMinyan(asksToMinyan);
+                    asksToMinyan.IdAsksToMinyan = idAskToMinyan;
                     r.AsksToMinyanDTO= asksToMinyan;
                     AskMinyanDTO asm = askMinyanBLL.GetAskMinyans().Find(am => am.IdAskMinyan == idAskMinyan);
                     MinyanDTO mi = minyanBll.GetMinyans().Find(mc => mc.IDMinyan == driverOptions[0].IDMinyan);
@@ -233,9 +238,10 @@ namespace BLL.Algoritmics
                     NumKM = locationAlgorithmics.RouteDistanceInKMOnModeDrive(driverLocation, locationDestination),
                     NumOfPeople = m.NumOfPeopleInMinyan,
                     TimeDriver = locationAlgorithmics.RouteDistanceInSecondOnModeDrive(driverLocation, locationDestination) / 60,
+                    LocationName = locationAlgorithmics.GetLocationByIDLocationMinyan(m.IDLocationMinyan).NameLocation,
                     PercentSuccess = MinyansInPercent(m.IDLocationMinyan)
                     //todo percentSuccess func
-                });
+                }); ;
             }
             return selectMinyans;
         }
@@ -249,9 +255,11 @@ namespace BLL.Algoritmics
             {
                 IdMinyan = selectMinyans[idSelected].IdMinyan,
                 IdAskMinyan = idAskMinyan,
-                IsComming = false
+                IsComming = false,
+                Message = ""
             };
-            asksToMinyanBLL.AddAsksToMinyan(asksToMinyan);
+            long idAskToMinyan = asksToMinyanBLL.AddAsksToMinyan(asksToMinyan);
+            asksToMinyan.IdAsksToMinyan = idAskToMinyan;
             r.AsksToMinyanDTO = asksToMinyan;
             r.IdAskMinyan = idAskMinyan;
             AskMinyanDTO a = askMinyanBLL.GetAskMinyans().Find(am => am.IdAskMinyan == idAskMinyan);

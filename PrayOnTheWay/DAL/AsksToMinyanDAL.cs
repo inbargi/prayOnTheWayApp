@@ -5,12 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 
 namespace DAL
 {
     public class AsksToMinyanDAL
     {
-        public bool AddAsksToMinyan(AsksToMinyan askToMinyan)
+        public long AddAsksToMinyan(AsksToMinyan askToMinyan)
         {
             using (PrayOnTheWayEntities DB = new PrayOnTheWayEntities())
             {
@@ -18,11 +19,20 @@ namespace DAL
                 try
                 {
                     DB.SaveChanges();
-                    return true;
+                    return askToMinyan.IdAsksToMinyan;
                 }
-                catch (DbUpdateException e)
+                catch (DbEntityValidationException e)
                 {
-                    Console.WriteLine(e.InnerException.InnerException.Message);
+                    foreach (var eve in e.EntityValidationErrors)
+                    {
+                        Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                                ve.PropertyName, ve.ErrorMessage);
+                        }
+                    }
                     throw;
                 }
             }
@@ -39,7 +49,9 @@ namespace DAL
         {
             using (PrayOnTheWayEntities DB = new PrayOnTheWayEntities())
             {
-                DB.Entry(asksToMinyan);
+                AsksToMinyan asktominyan = DB.AsksToMinyans.FirstOrDefault(a => a.IdAsksToMinyan == asksToMinyan.IdAsksToMinyan);
+                asktominyan.IsComming =asksToMinyan.IsComming ;
+                asktominyan.Message = asktominyan.Message;
                 try
                 {
                     DB.SaveChanges();

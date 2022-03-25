@@ -4,7 +4,8 @@ export class AskToMinyan
     public  IdAskToMinyan?:number,
     public  IdAskMinyan?:number,
     public  IdMinyan?:number,
-    public  IsComming?:boolean
+    public  IsComming?:boolean,
+    public  Message?:string
     ){}
 }
 

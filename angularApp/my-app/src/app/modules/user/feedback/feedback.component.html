@@ -9,17 +9,17 @@
     </g>
   </svg>
   <br>
-  <mat-checkbox id="arrived" color="warn" onchange="arrived()"> הגעתי למניין תודה! </mat-checkbox>
+  <mat-checkbox id="arrived" color="warn"  (change)="arrived()" [checked]="true"  > הגעתי למניין תודה! </mat-checkbox>
  
 </div>
 <div>
-  <mat-checkbox id="successfully" color="warn"> המניין התקיים בהצלחה </mat-checkbox>
+  <mat-checkbox id="successfully" color="warn" (change)="succesfully()"> המניין התקיים בהצלחה </mat-checkbox>
 </div>
 <div class="addDIV">
   <label>משהו נוסף שאתה רוצה לומר?</label>
   <br>
-  <input type="text" name="" id="add">
+  <input type="text" name="" id="message" (change)="message()">
 </div>
 <div id="submit">
-  <button mat-icon-button type="submit" value="שלח" click="submit()" color="warn"><mat-icon>send</mat-icon></button>
+  <button mat-icon-button type="submit" value="שלח" (click)="submit()" color="warn"><mat-icon>send</mat-icon></button>
 </div>
