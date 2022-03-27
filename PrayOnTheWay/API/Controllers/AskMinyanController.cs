@@ -24,7 +24,7 @@ namespace API.Controllers
             ResultDTO r=new ResultDTO();
             //the location is sent to RecognizePrayer Function.
             long idPrayer = timeAlgorithmics.RecognizePrayer(driverPoint);
-            idPrayer = 2;
+            
             if (idPrayer == -1)
             {
                 //if the recognize has a mistake it's will save an 1 error code 

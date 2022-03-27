@@ -20,7 +20,8 @@ export class UserHomeComponent implements OnInit {
     this.getLocation().then((location:any)=>
       {
         console.log(location);
-        const driverLocation= new LocationPoint(location.coords.latitude,location.coords.longitude);
+        var driverLocation= new LocationPoint(location.coords.latitude,location.coords.longitude);
+        driverLocation={Lat:31.312534,Lng: 34.619913}
         this.askMinyanService.location=location;
         
         this.askMinyanService.driverLocation(driverLocation)

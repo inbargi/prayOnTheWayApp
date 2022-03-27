@@ -23,6 +23,7 @@
           <Property Name="IdAskMinyan" Type="bigint" Nullable="false" />
           <Property Name="IdMinyan" Type="bigint" Nullable="false" />
           <Property Name="IsComming" Type="bit" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Minyan">
           <Key>
@@ -53,6 +54,7 @@
           <Property Name="IdlocationMinyan" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Lat" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Lng" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NameLocation" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="TimeAtTheDay">
           <Key>
@@ -294,6 +296,7 @@
           <Property Name="IdlocationMinyan" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Lat" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Lng" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NameLocation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Minyans" Relationship="PrayOnTheWayModel.FK__Minyan__Idlocati__2D27B809" FromRole="SafePointOnTheWay" ToRole="Minyan" />
         </EntityType>
         <Association Name="FK__Minyan__Idlocati__2D27B809">
@@ -316,6 +319,7 @@
           <Property Name="IdAskMinyan" Type="Int64" Nullable="false" />
           <Property Name="IdMinyan" Type="Int64" Nullable="false" />
           <Property Name="IsComming" Type="Boolean" Nullable="false" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AskMinyan" Relationship="PrayOnTheWayModel.FK__AsksToMin__IdAsk__30F848ED" FromRole="AsksToMinyan" ToRole="AskMinyan" />
           <NavigationProperty Name="Minyan" Relationship="PrayOnTheWayModel.FK__AsksToMin__IdMin__31EC6D26" FromRole="AsksToMinyan" ToRole="Minyan" />
         </EntityType>
@@ -396,6 +400,7 @@
           <EntitySetMapping Name="SafePointOnTheWays">
             <EntityTypeMapping TypeName="PrayOnTheWayModel.SafePointOnTheWay">
               <MappingFragment StoreEntitySet="SafePointOnTheWay">
+                <ScalarProperty Name="NameLocation" ColumnName="NameLocation" />
                 <ScalarProperty Name="Lng" ColumnName="Lng" />
                 <ScalarProperty Name="Lat" ColumnName="Lat" />
                 <ScalarProperty Name="IdlocationMinyan" ColumnName="IdlocationMinyan" />
@@ -405,6 +410,7 @@
           <EntitySetMapping Name="AsksToMinyans">
             <EntityTypeMapping TypeName="PrayOnTheWayModel.AsksToMinyan">
               <MappingFragment StoreEntitySet="AsksToMinyan">
+                <ScalarProperty Name="Message" ColumnName="Message" />
                 <ScalarProperty Name="IsComming" ColumnName="IsComming" />
                 <ScalarProperty Name="IdMinyan" ColumnName="IdMinyan" />
                 <ScalarProperty Name="IdAskMinyan" ColumnName="IdAskMinyan" />

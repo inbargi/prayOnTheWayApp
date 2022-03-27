@@ -27,11 +27,8 @@ namespace API.Controllers
             new BLL.LocationAlgorithmics().RouteDistanceInSecondOnModeDrive(new LocationPoint { Lat = "31.8701568", Lng = "34.7406336" }, new LocationPoint { Lat = "269.8701568", Lng = "270.7406336" });
             return minyanBll.GetMinyans();
         }
-        [HttpPut]
-        public bool UpdateMinyan(long idMinyan)
-        {
-            return minyanBll.UpdateSuccessfullyMinyan(idMinyan);
-        }
+       
+        
         [HttpPut]
         public void ExitFromMinyan(long idMinyan)
         {

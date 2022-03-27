@@ -35,6 +35,11 @@ namespace BLL.Algoritmics
                     }
                 }
             }
+            if(matchMinyan.Count==0)
+            {
+                //todo error2
+                BLL.Algoritmics.ErrorServiceClass.error = 0;
+            }
 
             return matchMinyan;
         }

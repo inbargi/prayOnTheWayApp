@@ -14,6 +14,7 @@ namespace API.Controllers
     public class AsksToMinyanController : ApiController
     {
        AsksToMinyanBLL asksToMinyanBll = new AsksToMinyanBLL();
+        MinyanBLL minyanBll = new MinyanBLL();
         [HttpPost]
         public long AddAsksToMinyan(AsksToMinyanDTO asksToMinyan)
         {
@@ -33,6 +34,11 @@ namespace API.Controllers
         public List<string> GetAllMessage()
         {
             return asksToMinyanBll.GetAllMessage();
+        }
+        [HttpPut]
+        public bool UpdateMinyanItem(long idMinyan)
+        {
+            return minyanBll.UpdateSuccessfullyMinyan(idMinyan);
         }
     }
 }

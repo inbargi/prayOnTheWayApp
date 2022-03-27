@@ -156,37 +156,36 @@ namespace BLL
         }
         public bool CheckTimeAlgorithmic(LocationPoint driverLocation, LocationPoint destination)
         {
-            int currentTime = (int)DateTime.Now.TimeOfDay.TotalSeconds;
-            int navigationTime = TimeDriveToMinyan(driverLocation, destination);
-            int prayTimeLength = GetPrayLength((int)RecognizePrayer(driverLocation)) * 60;
-            int getEndTimePray = (int)GetEndTimePray(driverLocation).TotalSeconds;
-            if (navigationTime == 0 || prayTimeLength == -1 || getEndTimePray.Equals(new TimeSpan()))
-                return false;
-
-            if (  navigationTime + prayTimeLength >currentTime- getEndTimePray)
-            {
-                //todo error2
-                BLL.Algoritmics.ErrorServiceClass.error = 0;
-                return false;
-            }
-
-            return true;
-
-            //TimeSpan currentTime = DateTime.Now.TimeOfDay;
+            //int currentTime = (int)DateTime.Now.TimeOfDay.TotalSeconds;
             //int navigationTime = TimeDriveToMinyan(driverLocation, destination);
             //int prayTimeLength = GetPrayLength((int)RecognizePrayer(driverLocation)) * 60;
-            //TimeSpan getEndTimePray = GetEndTimePray(driverLocation);
+            //int getEndTimePray = (int)GetEndTimePray(driverLocation).TotalSeconds;
             //if (navigationTime == 0 || prayTimeLength == -1 || getEndTimePray.Equals(new TimeSpan()))
             //    return false;
-            //double a = getEndTimePray.Subtract(currentTime).TotalSeconds;
-            //if (getEndTimePray.Subtract(currentTime).TotalSeconds <= navigationTime + prayTimeLength)
+
+            //if (  navigationTime + prayTimeLength >currentTime- getEndTimePray)
             //{
             //    //todo error2
-            //    BLL.Algoritmics.ErrorServiceClass.error = 2;
+            //    BLL.Algoritmics.ErrorServiceClass.error = 0;
             //    return false;
             //}
 
             //return true;
+
+            TimeSpan currentTime = DateTime.Now.TimeOfDay;
+            int navigationTime = TimeDriveToMinyan(driverLocation, destination);
+            int prayTimeLength = GetPrayLength((int)RecognizePrayer(driverLocation)) * 60;
+            TimeSpan getEndTimePray = GetEndTimePray(driverLocation);
+            if (navigationTime == 0 || prayTimeLength == -1 || getEndTimePray.Equals(new TimeSpan()))
+                return false;
+            TimeSpan a = getEndTimePray.Subtract(currentTime);
+            int total = a.Seconds + 60 * a.Minutes + 360 * a.Hours;
+            if (total <= navigationTime + prayTimeLength)
+            {
+                return false;
+            }
+
+            return true;
 
 
 

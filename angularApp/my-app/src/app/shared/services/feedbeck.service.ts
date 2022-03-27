@@ -19,7 +19,7 @@ export class FeedbeckService {
    }
    UpdateMinyan(idMinyan:number):Observable<boolean>
    {
-     return this.http.put<boolean>(environment.api_url+'Minyan/UpdateMinyan',idMinyan)
+     return this.http.put<boolean>(environment.api_url+'AsksToMinyan/UpdateMinyanItem',idMinyan)
    }
    getAllMessage():Observable<any>
    {
